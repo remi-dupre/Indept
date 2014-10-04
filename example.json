@@ -9,7 +9,8 @@
             "titre" : "Casque",
             "date" : 1412417672,
             "montant" : 25,
-            "description" : "Pour geekouiller un peu ca fait plaisir :)"
+            "description" : "Pour geekouiller un peu ca fait plaisir :)",
+            "refuse" : true
         },
         {
             "titre" : "Tickets t+",

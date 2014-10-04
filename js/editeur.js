@@ -10,10 +10,17 @@ function ouvrir(fichier) {
 				ligne.find(".doc_info.liste-" + key).text(json.liste[i][key]);
 			}
 			
-			if(json.liste[i].montant < 0)
-			    ligne.addClass("success");
-			else if(json.liste[i].montant > 50)
+			if(json.liste[i].refuse == true)
 			    ligne.addClass("danger");
+			else if(json.liste[i].montant < 0)
+			    ligne.addClass("success");
+			
+			var iconeRefuse = $("<span class='glyphicon'</span>");
+			if(json.liste[i].refuse == true)
+			    iconeRefuse.addClass("glyphicon-remove-sign");
+			else
+			    iconeRefuse.addClass("glyphicon-ok-sign");
+			iconeRefuse.appendTo(ligne.find(".doc_info.status_icone"));
 			    
 			ligne.appendTo("#liste");
 		}

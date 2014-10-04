@@ -1,12 +1,3 @@
-<body>
-	<h1></h1>
-	<table>
-		<tr>
-			<td class="doc_info titre"></td>
-			<td class="doc_info montant"></td>
-		</tr>
-	</table>
-</body>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,10 +12,10 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
   </head>
 
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -49,7 +40,8 @@
         </div>
       </div>
     </div>
-        
+       
+
     <div class="col-md-10 col-md-offset-1 main">
       <h1 class="page-header"> Dettes de <em class="doc_info receveur"></em> à <em class="doc_info donneur"></em> </h1>
       
@@ -61,6 +53,7 @@
               <th>Montant</th>
               <th>Date</th>
               <th>Description</th>
+              <th class="icone_tr">#</th>
             </tr>
           </thead>
           <tbody id="liste">
@@ -70,6 +63,7 @@
               <td> <span class="doc_info liste-montant">Montant</span><em> €</em> </td>
               <td class="doc_info liste-date time-date">Date</td>
               <td class="doc_info liste-description">Description</td>
+              <td class="doc_info status_icone icone_tr"></td>
             </tr>
           </tbody>
         </table>

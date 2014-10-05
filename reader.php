@@ -1,12 +1,17 @@
+<?php
+  session_start();
+  if( !isset($_SESSION["utilisateur"]) ) {
+    header("Location: login.php");
+    return;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title class="doc_info nom">Lecteur de fichier dette</title>
 
@@ -40,7 +45,7 @@
               </ul>
             </li>
             <li><a href="#">Profil</a></li>
-            <li><a href="#">Déconnection</a></li>
+            <li><a href="unlogin.php">Déconnection</a></li>
           </ul>
           <span class="navbar-form navbar-right">
             <input id="recherche" type="text" class="form-control" placeholder="Filtrer ...">
@@ -53,7 +58,8 @@
     <div class="col-md-10 col-md-offset-1 main">
       <h1 class="page-header"> Dettes de <em class="doc_info receveur"></em> à <em class="doc_info donneur"></em> </h1>
       
-      <button id="ajouter_ligne" type="button" class="btn btn-primary btn-sm" disabled="enable"><span class="glyphicon glyphicon-plus"></span> Ajouter</button>
+      <button id="ajouter_ligne" type="button" class="btn btn-primary btn-sm" ><span class="glyphicon glyphicon-plus"></span> Ajouter</button>
+      <button id="envoyer" type="button" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-upload"></span> Enregistrer</button>
       
       <div class="table-responsive">
         <table class="table table-striped table-hover">

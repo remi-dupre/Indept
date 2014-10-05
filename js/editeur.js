@@ -1,5 +1,24 @@
 var contenu = {};   // Le contenu du json
 
+function ancre() {
+    var ancre = window.location.hash;
+    ancre = ancre.substring(1,ancre.length);
+    return ancre;
+}
+
+function envoyer() {
+    $("#envoyer").removeClass("btn-danger btn-success").attr("disabled", true);
+    $.ajax({
+        type: "GET",
+        url: "fonctions/fichier.php?f=" + ancre() + "&content=" + JSON.stringify(contenu, null, "\t"),
+        dataType: "text"
+    }).success(function(){
+        $("#envoyer").addClass("btn-success").attr("disabled", false);
+    }).error(function(){
+        $("#envoyer").addClass("btn-danger").attr("disabled", true);
+    });
+}
+
 function ouvrir(fichier) {
 	$.getJSON(fichier, function(json) {
 	    contenu = json;
@@ -79,6 +98,7 @@ function inserer() {
     $("#ligne_ajout").hide();
     
     console.info("Ajout de ligne : ") ; console.info(ligne);
+    envoyer();
 }
 
 function filtrer() {
@@ -105,20 +125,15 @@ function changerDates() {
 }
 
 $(document).ready(function() {
-    ouvrir("example.json");
+    ouvrir("fonctions/fichier.php?f=" + ancre());
     
     $("#ajouter_ligne").attr("disabled", false);
     
-    $("#recherche").keyup(function(){
-        filtrer();
-    });
-    $("#ajouter_ligne").click(function(){
-        ajouterLigne();
-    });
+    $("#recherche").keyup(filtrer);
+    $("#ajouter_ligne").click(ajouterLigne);
+    $("#envoyer").click(envoyer);
     
-    $("#inserer").click(function(){
-        inserer();
-    });
+    $("#inserer").click(inserer);
     $("#ligne_ajout input").keypress(function(e){
         if(e.which == 13)
             inserer();

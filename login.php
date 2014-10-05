@@ -28,16 +28,19 @@
     </head>
     
     <body>
-        <div class="container">
-          <form class="form-signin" method="POST" action="login.php">
+        <div class="container form-signin">
+          <form method="POST" action="login.php">
             <?php if($erreur) { ?>
                 <div class="alert alert-danger" role="alert">Le nom d'utilisateur / mot de passe entré est <strong>invalide</strong></div>
             <?php } ?>
             <h2 class="form-signin-heading">Connection requise</h2>
-            <input type="text" name="username" class="form-control" placeholder="Nom d'utilisateur" value="remi" required autofocus>
+            <input type="text" name="username" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
             <input type="password" name="password" class="form-control" placeholder="Mot de passe" required>
-            <input class="btn btn-lg btn-primary btn-block" type="submit" name="login" value="Login" />
+            <input class="btn btn-lg btn-primary btn-block" type="submit" name="login" value="Connection" />
           </form>
+          <div class="form-footer">
+              <a href="inscription.php">S'inscrire</a>
+          </div>
         </div>
     </body>
 </html>

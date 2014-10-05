@@ -64,6 +64,29 @@
     <div class="col-md-10 col-md-offset-1 main">
       <h1 class="page-header"> Dettes de <em class="doc_info receveur_pseudo"></em> à <em class="doc_info donneur_pseudo"></em> </h1>
       
+      <div class="panel panel-info">
+        <!-- Default panel contents -->
+        <div class="panel-heading doc_info nom">Informations</div>
+      
+        <!-- Table -->
+        <table class="table">
+          <tr>
+            <td>A payer</td>
+            <td>Dépensé</td>
+            <td>Payé dans le mois</td>
+            <td>Dépensé dans le mois</td>
+            <td>Total</td>
+          </tr>
+          <tr>
+            <td>10€</td>
+            <td>10€</td>
+            <td>10€</td>
+            <td>10€</td>
+            <td>10€</td>
+          </tr>
+        </table>
+      </div>
+      
       <button id="ajouter_ligne" type="button" class="btn btn-primary btn-sm" ><span class="glyphicon glyphicon-plus"></span> Ajouter</button>
       <button id="envoyer" type="button" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-upload"></span> Enregistrer</button>
       

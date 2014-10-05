@@ -17,7 +17,7 @@ function envoyer() {
     }).success(function(){
         $("#envoyer").addClass("btn-success").attr("disabled", false);
     }).error(function(){
-        $("#envoyer").addClass("btn-danger").attr("disabled", true);
+        $("#envoyer").addClass("btn-danger").attr("disabled", false);
     });
 }
 
@@ -58,7 +58,7 @@ function lire(json) {
 }
 
 function lireLigne(ligneJson) {
-	var ligne = $("#liste>tr:first").clone().show().addClass("rm_on_file_change");
+	var ligne = $("#liste>tr:first").clone().show().addClass("rm_on_file_change ligne_info");
 	for(var key in ligneJson) {
 		ligne.find(".doc_info.liste-" + key).text(ligneJson[key]);
 	}

@@ -27,7 +27,7 @@
             // Virer les trucs interdits
         }
         
-        file_put_contents("../fichiers/$fichier.json", $nvContenu);
+        file_put_contents("../fichiers/$fichier.json", json_encode($jsonNv, JSON_PRETTY_PRINT));
         return $nvContenu;
     }
     

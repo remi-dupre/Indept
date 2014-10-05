@@ -1,33 +1,44 @@
+var contenu = {};   // Le contenu du json
+
 function ouvrir(fichier) {
 	$.getJSON(fichier, function(json) {
-		for(var key in json) {
-			console.inf(key + " : " + json[key]);
-			$(".doc_info." + key).text(json[key]);
-		}
-		for(var i in json.liste) {
-			var ligne = $("#liste>tr:first").clone().show();
-			for(var key in json.liste[i]) {
-				ligne.find(".doc_info.liste-" + key).text(json.liste[i][key]);
-			}
-			
-			if(json.liste[i].refuse == true)
-			    ligne.addClass("danger");
-			else if(json.liste[i].montant < 0)
-			    ligne.addClass("success");
-			
-			var iconeRefuse = $("<span class='glyphicon'</span>");
-			if(json.liste[i].refuse == true)
-			    iconeRefuse.addClass("glyphicon-remove-sign");
-			else
-			    iconeRefuse.addClass("glyphicon-ok-sign");
-			iconeRefuse.appendTo(ligne.find(".doc_info.status_icone"));
-			    
-			ligne.appendTo("#liste");
-		}
-		
-		$("#recherche").val("");
-		changerDates();
+	    contenu = json;
+	    lire(contenu);
 	});
+	$("#recherche").val("");
+}
+
+function lire(json) {
+	for(var key in json) {
+		console.inf(key + " : " + json[key]);
+		$(".doc_info." + key).text(json[key]);
+	}
+	for(var i in json.liste) {
+		lireLigne(json.liste[i]);
+	}
+	
+	changerDates();
+}
+
+function lireLigne(ligneJson) {
+	var ligne = $("#liste>tr:first").clone().show().addClass("ligne_info");
+	for(var key in ligneJson) {
+		ligne.find(".doc_info.liste-" + key).text(ligneJson[key]);
+	}
+	
+	if(ligneJson.refuse === true)
+	    ligne.addClass("danger");
+	else if(ligneJson.montant < 0)
+	    ligne.addClass("success");
+	
+	var iconeRefuse = $("<span class='glyphicon'</span>");
+	if(ligneJson.refuse === true)
+	    iconeRefuse.addClass("glyphicon-remove-sign");
+	else
+	    iconeRefuse.addClass("glyphicon-ok-sign");
+	iconeRefuse.appendTo(ligne.find(".doc_info.status_icone"));
+	    
+	ligne.appendTo("#liste");
 }
 
 function ajouterLigne() {
@@ -45,6 +56,29 @@ function ajouterLigne() {
     $("#ajouter_ligne").attr("disabled", true);
     ligne.show();
     $($(".input_ligne")[0]).focus();
+}
+
+function inserer() {
+    var d = $("#ligne_ajout .liste-date").val().split("/");
+    var timestamp = new Date(d[2], d[1]-1, d[0]);
+    
+    var ligne = {
+        titre : $("#ligne_ajout .liste-titre").val(),
+        date : timestamp/1000,
+        montant : parseInt( $("#ligne_ajout .liste-montant").val() ),
+        description : $("#ligne_ajout .liste-description").val()
+    };
+    
+    contenu.liste.unshift(ligne);
+    
+    $(".ligne_info").remove();
+    lire(contenu);
+    filtrer();
+    
+    $("#ajouter_ligne").attr("disabled", false);
+    $("#ligne_ajout").hide();
+    
+    console.info("Ajout de ligne : ") ; console.info(ligne);
 }
 
 function filtrer() {
@@ -80,5 +114,13 @@ $(document).ready(function() {
     });
     $("#ajouter_ligne").click(function(){
         ajouterLigne();
+    });
+    
+    $("#inserer").click(function(){
+        inserer();
+    });
+    $("#ligne_ajout input").keypress(function(e){
+        if(e.which == 13)
+            inserer();
     });
 });

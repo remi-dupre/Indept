@@ -1,4 +1,6 @@
 var contenu = {};   // Le contenu du json
+var fichiers = {};
+var comptes = {};
 
 function ancre() {
     var ancre = window.location.hash;
@@ -21,17 +23,33 @@ function envoyer() {
 
 function ouvrir(fichier) {
 	$.getJSON(fichier, function(json) {
-	    contenu = json;
+	    contenu = json.contenu;
+	    fichiers = json.fichiers;
+	    comptes = json.comptes;
+	    
+	    $(".rm_on_file_change").remove();
+	    
 	    lire(contenu);
+	    for(var i in fichiers) {
+	        var element = $("<li><a></a></li>").addClass("rm_on_file_change");
+	        element.find("a").text(fichiers[i].nom).attr("href", "#" + fichiers[i].fichier);
+	        element.appendTo("#liste_fichiers");
+            $("#liste_fichiers>li>a").click(function(e){
+                ouvrir("fonctions/fichier.php?f=" + $(e.currentTarget).attr("href").split("#")[1]);
+            });
+	    }
 	});
 	$("#recherche").val("");
 }
 
 function lire(json) {
 	for(var key in json) {
+	    var val = json[key];
 		console.inf(key + " : " + json[key]);
 		$(".doc_info." + key).text(json[key]);
 	}
+	$(".doc_info.receveur_pseudo").text(comptes[json.receveur]);
+	$(".doc_info.donneur_pseudo").text(comptes[json.donneur]);
 	for(var i in json.liste) {
 		lireLigne(json.liste[i]);
 	}
@@ -40,7 +58,7 @@ function lire(json) {
 }
 
 function lireLigne(ligneJson) {
-	var ligne = $("#liste>tr:first").clone().show().addClass("ligne_info");
+	var ligne = $("#liste>tr:first").clone().show().addClass("rm_on_file_change");
 	for(var key in ligneJson) {
 		ligne.find(".doc_info.liste-" + key).text(ligneJson[key]);
 	}

@@ -1,7 +1,8 @@
 <?php
-    include("../php/fichiers.php");
+    require_once("../php/fichiers.php");
     
     session_start();
+    listerFichiers();
     
     if( !isset($_GET["f"]) )
         return;
@@ -10,6 +11,11 @@
         echo modif($_GET["f"], $_GET["content"]);
     }
     else {
-        echo ouvre($_GET["f"]);
+        $r = array(
+            "contenu" => json_decode(ouvre($_GET["f"]), true),
+            "fichiers" => json_decode(listerFichiers(), true),
+            "comptes" => listerComptes()
+        );
+        echo json_encode($r);
     }
 ?>

@@ -27,7 +27,40 @@
             // Virer les trucs interdits
         }
         
-        echo file_put_contents("../fichiers/$fichier.json", $nvContenu);
+        file_put_contents("../fichiers/$fichier.json", $nvContenu);
         return $nvContenu;
+    }
+    
+    
+    function listerFichiers() {
+        $liste = array();
+        $dir = opendir("../fichiers");
+        while($file = readdir($dir)) {
+            if($file != "." && $file != "..") {
+                $fichier = explode(".", $file)[0];
+                $proprio = explode("-", $fichier);
+                if( in_array($_SESSION["utilisateur"]["login"], $proprio) ) {
+                    $liste[] = array(
+                        "fichier" => $fichier,
+                        "nom" => json_decode(ouvre($fichier), true)["nom"]
+                    );
+                }
+            }
+        }
+        closedir($dir); 
+        return json_encode($liste);
+    }
+    
+    function listerComptes() {
+        $liste = array();
+        $dir = opendir("../comptes");
+        while($file = readdir($dir)) {
+            if($file != "." && $file != "..") {
+                $fichier = explode(".", $file)[0];
+                $liste[$fichier] = json_decode(file_get_contents("../comptes/$file"), true)["pseudo"];
+            }
+        }
+        closedir($dir); 
+        return $liste;
     }
 ?>

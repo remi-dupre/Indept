@@ -31,9 +31,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <span class="navbar-brand doc_info nom">Reader</span>
+          <a class="dropdown-toggle navbar-brand doc_info nom" data-toggle="dropdown">Fichier</a>
         </div>
         <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" ><li class="dropdown ">
+            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown"><strong class="caret"></strong></a>
+            <ul class="dropdown-menu" role="menu" id="liste_fichiers">
+              <!-- Liste des fichiers ouvrables -->
+            </ul>
+          </li></ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fichier<span class="caret"></span></a>
@@ -56,7 +62,7 @@
        
 
     <div class="col-md-10 col-md-offset-1 main">
-      <h1 class="page-header"> Dettes de <em class="doc_info receveur"></em> à <em class="doc_info donneur"></em> </h1>
+      <h1 class="page-header"> Dettes de <em class="doc_info receveur_pseudo"></em> à <em class="doc_info donneur_pseudo"></em> </h1>
       
       <button id="ajouter_ligne" type="button" class="btn btn-primary btn-sm" ><span class="glyphicon glyphicon-plus"></span> Ajouter</button>
       <button id="envoyer" type="button" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-upload"></span> Enregistrer</button>

@@ -4,6 +4,7 @@
     "derniere_edition" : 0,
     "donneur" : "Michel",
     "receveur" : "Rémi",
+    "partage" : "public",
     "liste" : [
         {
             "titre" : "Casque",

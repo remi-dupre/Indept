@@ -11,6 +11,7 @@
     <title class="doc_info nom">Lecteur de fichier dette</title>
 
     <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/dot-luv/jquery-ui.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/global.css" rel="stylesheet">
   </head>
@@ -29,10 +30,17 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fichier<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Enregistrer / Exporter le fichier</a></li>
+                <li><a href="#">Partager</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Configuration du fichier</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Profil</a></li>
+            <li><a href="#">Déconnection</a></li>
           </ul>
           <span class="navbar-form navbar-right">
             <input id="recherche" type="text" class="form-control" placeholder="Filtrer ...">
@@ -45,13 +53,15 @@
     <div class="col-md-10 col-md-offset-1 main">
       <h1 class="page-header"> Dettes de <em class="doc_info receveur"></em> à <em class="doc_info donneur"></em> </h1>
       
+      <button id="ajouter_ligne" type="button" class="btn btn-primary btn-sm" disabled="enable"><span class="glyphicon glyphicon-plus"></span> Ajouter</button>
+      
       <div class="table-responsive">
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th>Titre</th>
-              <th>Montant</th>
-              <th>Date</th>
+              <th class="col-md-2">Titre</th>
+              <th class="col-md-1">Montant</th>
+              <th class="col-md-1">Date</th>
               <th>Description</th>
               <th class="icone_tr">#</th>
             </tr>
@@ -60,10 +70,20 @@
             <!-- Ligne de référence -->
             <tr style="display:none">
               <td class="doc_info liste-titre">Titre</td>
-              <td> <span class="doc_info liste-montant">Montant</span><em> €</em> </td>
+              <td class="montant"> <span class="doc_info liste-montant">Montant</span><em> €</em> </td>
               <td class="doc_info liste-date time-date">Date</td>
               <td class="doc_info liste-description">Description</td>
               <td class="doc_info status_icone icone_tr"></td>
+            </tr>
+            <!-- Ligne d'ajout de champ -->
+            <tr style="display:none" id="ligne_ajout">
+              <td> <input type="text" class="input_ligne titre" placeholder="Titre" /> </td>
+              <td> <input type="number" class="input_ligne montant" placeholder="en €" /> </td>
+              <td> <input type="text" class="input_ligne liste-date" placeholder="jj/mm/yyyy" /> </td>
+              <td> <input type="text" class="input_ligne liste-description" placeholder="Commentaire supplémentaires" /> </td>
+              <td class="doc_info icone_tr">
+                <button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -71,6 +91,7 @@
     </div>
 
 	<script src="js/jquery.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/editeur.js"></script>
 

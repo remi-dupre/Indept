@@ -30,9 +30,26 @@ function ouvrir(fichier) {
 	});
 }
 
+function ajouterLigne() {
+    var ligne = $("#ligne_ajout");
+    
+    ligne.find("input.liste-date").datepicker({
+        dateFormat: "dd/mm/yy",
+        beforeShow: function() {
+            setTimeout(function(){
+                $("#ui-datepicker-div").css("z-index", 99999999999);
+            }, 0);
+        }
+    });
+    
+    $("#ajouter_ligne").attr("disabled", true);
+    ligne.show();
+    $($(".input_ligne")[0]).focus();
+}
+
 function filtrer() {
     $("#liste>tr").each(function(i, e) {
-        if(i > 0) {
+        if(i > 1) { //Elimine la ligne de model et d'ajout
             var recherche = $("#recherche").val().toUpperCase();
             if( $(e).text().toUpperCase().indexOf(recherche) == -1)
                 $(e).hide();
@@ -56,7 +73,12 @@ function changerDates() {
 $(document).ready(function() {
     ouvrir("example.json");
     
+    $("#ajouter_ligne").attr("disabled", false);
+    
     $("#recherche").keyup(function(){
         filtrer();
+    });
+    $("#ajouter_ligne").click(function(){
+        ajouterLigne();
     });
 });

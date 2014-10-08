@@ -2,6 +2,10 @@ body {
     padding-top: 60px;
 }
 
+a {
+    cursor: pointer;
+}
+
 .icone_tr {
     width : 40px;
 }

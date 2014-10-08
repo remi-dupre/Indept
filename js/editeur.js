@@ -44,12 +44,14 @@ function ouvrir(fichier) {
 
 function lire(json) {
 	for(var key in json) {
-	    var val = json[key];
 		console.inf(key + " : " + json[key]);
 		$(".doc_info." + key).text(json[key]);
 	}
 	$(".doc_info.receveur_pseudo").text(comptes[json.receveur]);
 	$(".doc_info.donneur_pseudo").text(comptes[json.donneur]);
+	$(".dl.json").attr("href", "fonctions/fichier.php?raw=json&f=" + ancre());
+	$(".dl.csv").attr("href", "fonctions/fichier.php?raw=csv&f=" + ancre());
+	
 	for(var i in json.liste) {
 		lireLigne(json.liste[i]);
 	}
@@ -102,7 +104,7 @@ function inserer() {
     var ligne = {
         titre : $("#ligne_ajout .liste-titre").val(),
         date : timestamp/1000,
-        montant : parseInt( $("#ligne_ajout .liste-montant").val() ),
+        montant : parseFloat( $("#ligne_ajout .liste-montant").val() ),
         description : $("#ligne_ajout .liste-description").val()
     };
     
@@ -146,6 +148,8 @@ $(document).ready(function() {
     ouvrir("fonctions/fichier.php?f=" + ancre());
     
     $("#ajouter_ligne").attr("disabled", false);
+    $("#fenDl").modal({show : false});
+    $("#btnDl").click(function(){ $("#fenDl").modal("show") });
     
     $("#recherche").keyup(filtrer);
     $("#ajouter_ligne").click(ajouterLigne);

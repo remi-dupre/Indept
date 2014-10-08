@@ -1,21 +1,29 @@
 <?php
     require_once("../php/fichiers.php");
+    require_once("../php/comptes.php");
     
     session_start();
-    listerFichiers();
     
-    if( !isset($_GET["f"]) )
-        return;
-
-    if( isset($_GET["content"]) ) {
-        echo modif($_GET["f"], $_GET["content"]);
+    $r = array(
+        "fichiers" => json_decode(listerFichiers(), true),
+        "comptes" => listerComptes()
+    );
+    
+    if( isset($_GET["f"]) && $_GET["f"] != "" ) {
+        if( isset($_GET["raw"]) ) {
+            if( $_GET["raw"] == "json" )
+                $r = ouvre($_GET["f"]);
+            echo $r;
+            return;
+        }
+        
+        if( isset($_GET["content"]) ) {
+            $r["contenu"] =  modif($_GET["f"], $_GET["content"]);
+        }
+        else {
+            $r["contenu"] = json_decode(ouvre($_GET["f"]), true);
+        }
     }
-    else {
-        $r = array(
-            "contenu" => json_decode(ouvre($_GET["f"]), true),
-            "fichiers" => json_decode(listerFichiers(), true),
-            "comptes" => listerComptes()
-        );
-        echo json_encode($r);
-    }
+    
+    echo json_encode($r);
 ?>

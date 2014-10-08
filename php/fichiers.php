@@ -50,17 +50,4 @@
         closedir($dir); 
         return json_encode($liste);
     }
-    
-    function listerComptes() {
-        $liste = array();
-        $dir = opendir("../comptes");
-        while($file = readdir($dir)) {
-            if($file != "." && $file != "..") {
-                $fichier = explode(".", $file)[0];
-                $liste[$fichier] = json_decode(file_get_contents("../comptes/$file"), true)["pseudo"];
-            }
-        }
-        closedir($dir); 
-        return $liste;
-    }
 ?>

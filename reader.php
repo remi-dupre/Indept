@@ -44,7 +44,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fichier<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Enregistrer / Exporter le fichier</a></li>
+                <li><a data-toggle="modal" data-target="#fenDl">Enregistrer / Exporter le fichier</a></li>
                 <li><a href="#">Partager</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Configuration du fichier</a></li>
@@ -69,14 +69,20 @@
         <div class="panel-heading doc_info nom">Informations</div>
       
         <!-- Table -->
-        <table class="table">
-          <tr>
-            <td>A payer</td>
-            <td>Dépensé</td>
-            <td>Payé dans le mois</td>
-            <td>Dépensé dans le mois</td>
-            <td>Total</td>
-          </tr>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th colspan=2>Mois</th>
+              <th colspan=3>Total</th>
+            </tr>
+            <tr>
+              <th class="doc_info donneur_pseudo">Payé</th>
+              <th class="doc_info receveur_pseudo">Dépensé</th>
+              <th class="doc_info donneur_pseudo">Payé</th>
+              <th class="doc_info receveur_pseudo">Dépensé</th>
+              <th>Total</th>
+            </tr>
+          </thead>
           <tr>
             <td>10€</td>
             <td>10€</td>
@@ -125,11 +131,25 @@
       </div>
     </div>
 
+  <div class="modal fade" id="fenDl" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Télécharger / importer les données</h4>
+        </div>
+        <div class="modal-body">
+          <p><a class="dl json" download="dept.json">Télécharger au format JSON</a></p>
+          <p><a class="dl csv" download="dept.csv">Télécharger au format CSV</a> - pour importer dans excel ou d'autres logiciels</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 	<script src="js/jquery.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/editeur.js"></script>
-
 
   </body>
 </html>

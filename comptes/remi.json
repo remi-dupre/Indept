@@ -1,5 +1,6 @@
 {
-    "login" : "remi",
-    "pseudo" : "Rémi Dupré",
-    "passe" : "dan"
+    "login": "remi",
+    "pseudo": "R\u00e9mi",
+    "passe": "$1$BUev\/Nr2$1p3TVUDJRx8xgy0CITBNT1",
+    "email": "remim.dupre@gmail.com"
 }

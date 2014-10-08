@@ -7,6 +7,36 @@
     "partage": "public",
     "liste": [
         {
+            "titre": "Test float",
+            "date": 1412546400,
+            "montant": 13.5,
+            "description": "Convertis les , en . ?"
+        },
+        {
+            "titre": "Fix float",
+            "date": 1412546400,
+            "montant": 13.5,
+            "description": ""
+        },
+        {
+            "titre": "Test float",
+            "date": 1412546400,
+            "montant": 13,
+            "description": ""
+        },
+        {
+            "titre": "dzzd",
+            "date": null,
+            "montant": null,
+            "description": ""
+        },
+        {
+            "titre": "Encore test",
+            "date": 1412546400,
+            "montant": 40,
+            "description": "Ca fait logntemps que j'ai pas fait un test , et comme c'est tr\u00e8s le swagg ..."
+        },
+        {
             "titre": "Test",
             "date": 1412460000,
             "montant": -99999999,

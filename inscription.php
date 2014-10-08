@@ -1,3 +1,14 @@
+<?php
+    require_once("php/comptes.php");
+    
+    if( isset($_POST["inscription"]) ) {
+        if( creerCompte($_POST) ) {
+            header ("location: login.php");
+            return;
+        }
+        else $erreurMsg = '<div class="alert alert-danger" role="alert">Inscription annulée</div>';
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,13 +21,13 @@
     
     <body>
         <div class="container form-signin">
+        <?php echo $erreurMsg; ?>
           <form method="POST" action="inscription.php">
-            
             <h2 class="form-signin-heading">Inscription</h2>
-            <input type="text" name="login" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
-            <input type="text" name="user" class="form-control" placeholder="Nom apparent" required autofocus>
+            <input type="text" name="login" class="form-control" placeholder="Identifiant" required autofocus>
+            <input type="text" name="pseudo" class="form-control" placeholder="Nom apparent" required>
             <br />
-            <input type="password" name="password" class="form-control" placeholder="Mot de passe" required>
+            <input type="password" name="passe" class="form-control" placeholder="Mot de passe" required>
             <input type="password" name="pwd_conf" class="form-control" placeholder="Verification mot de passe" required>
             <br />
             <input type="email" name="email" class="form-control" placeholder="Adresse e-mail" required>

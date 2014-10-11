@@ -1,6 +1,7 @@
 var contenu = {};   // Le contenu du json
 var fichiers = {};
 var comptes = {};
+var stats = {};
 
 function ancre() {
     var ancre = window.location.hash;
@@ -34,15 +35,19 @@ function ouvrir(fichier) {
 	        var element = $("<li><a></a></li>").addClass("rm_on_file_change");
 	        element.find("a").text(fichiers[i].nom).attr("href", "#" + fichiers[i].fichier);
 	        element.appendTo("#liste_fichiers");
-            $("#liste_fichiers>li>a").click(function(e){
-                ouvrir("fonctions/fichier.php?f=" + $(e.currentTarget).attr("href").split("#")[1]);
-            });
 	    }
+        $("#liste_fichiers>li>a").click(function(e){
+            ouvrir("fonctions/fichier.php?f=" + $(e.currentTarget).attr("href").split("#")[1]);
+        });
 	});
 	$("#recherche").val("");
 }
 
 function lire(json) {
+    stats = {
+        total : { depense : 0, rembourse : 0 },
+        mois : { depense : 0, rembourse : 0 }
+    };
 	for(var key in json) {
 		console.inf(key + " : " + json[key]);
 		$(".doc_info." + key).text(json[key]);
@@ -78,6 +83,27 @@ function lireLigne(ligneJson) {
 	iconeRefuse.appendTo(ligne.find(".doc_info.status_icone"));
 	    
 	ligne.appendTo("#liste");
+	majStats(ligneJson);
+}
+
+function majStats(ligne) {
+    console.debug(ligne);
+    var date = new Date(ligne.date * 1000);
+    var mtnt = new Date();
+    
+    if( !ligne.refuse ) {
+        var type = ligne.montant > 0 ? "depense" : "rembourse";
+        if( date.getFullYear() == mtnt.getFullYear() && date.getMonth() == mtnt.getMonth() ) {
+            stats.mois[type] += Math.abs(ligne.montant);
+        }
+        stats.total[type] += Math.abs(ligne.montant);
+        
+        $(".stats.total").text(stats.total.depense - stats.total.rembourse +" €");
+        $(".stats.tout.depense").text(stats.total.depense +" €");
+        $(".stats.tout.rembourse").text(stats.total.rembourse +" €");
+        $(".stats.mois.depense").text(stats.mois.depense +" €");
+        $(".stats.mois.rembourse").text(stats.mois.depense +" €");
+    }
 }
 
 function ajouterLigne() {

@@ -76,19 +76,19 @@
               <th colspan=3>Total</th>
             </tr>
             <tr>
-              <th class="doc_info donneur_pseudo">Payé</th>
-              <th class="doc_info receveur_pseudo">Dépensé</th>
-              <th class="doc_info donneur_pseudo">Payé</th>
-              <th class="doc_info receveur_pseudo">Dépensé</th>
-              <th>Total</th>
+              <th class="col-md-2 doc_info donneur_pseudo">Payé</th>
+              <th class="col-md-2 doc_info receveur_pseudo">Dépensé</th>
+              <th class="col-md-2 doc_info donneur_pseudo">Payé</th>
+              <th class="col-md-2 doc_info receveur_pseudo">Dépensé</th>
+              <th class="col-md-2">Total</th>
             </tr>
           </thead>
           <tr>
-            <td>10€</td>
-            <td>10€</td>
-            <td>10€</td>
-            <td>10€</td>
-            <td>10€</td>
+            <td class="stats mois depense">0 €</td>
+            <td class="stats mois rembourse">0 €</td>
+            <td class="stats tout depense">0 €</td>
+            <td class="stats tout rembourse">0 €</td>
+            <td class="stats total">0 €</td>
           </tr>
         </table>
       </div>

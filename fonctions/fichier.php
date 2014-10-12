@@ -18,6 +18,8 @@
         if( isset($_GET["raw"]) ) {
             if( $_GET["raw"] == "json" )
                 $r = ouvre($_GET["f"]);
+            elseif( $_GET["raw"] == "csv" )
+                $r = getCSV($_GET["f"]);
             echo $r;
             return;
         }

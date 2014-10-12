@@ -47,7 +47,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fichier<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a data-toggle="modal" data-target="#fenDl">Enregistrer / Exporter le fichier</a></li>
-                <li><a href="#">Partager</a></li>
+                <li><a data-toggle="modal" data-target="#fenShare">Partager</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Configuration du fichier</a></li>
               </ul>
@@ -102,7 +102,7 @@
       
       <button id="ajouter_ligne" type="button" class="btn btn-primary btn-sm" ><span class="glyphicon glyphicon-plus"></span> Ajouter</button>
       <button id="envoyer" type="button" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-upload"></span> Enregistrer</button>
-      
+
       <div class="table-responsive">
         <table class="table table-striped table-hover">
           <thead>
@@ -152,6 +152,20 @@
         <div class="modal-body">
           <p><a class="dl json" download="dept.json">Télécharger au format JSON</a></p>
           <p><a class="dl csv" download="dept.csv">Télécharger au format CSV</a> - pour importer dans excel ou d'autres logiciels</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="fenShare" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Partager ce fichier</h4>
+        </div>
+        <div class="modal-body">
+          <p>Pour l'instant seul deux personnes peuvent modifier le fichier. Si le fichier est publique, vous pouvez donner le lien à quelqu'un qui doit néanmoins créer un compte.</p>
         </div>
       </div>
     </div>

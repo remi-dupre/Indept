@@ -47,3 +47,11 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+#footer {
+  position : fixed;
+  bottom : 10px;
+  right : 10px;
+  
+  cursor : pointer;
+}

@@ -1,7 +1,8 @@
 <?php
     session_start();
     $root = "";
-    include("php/comptes.php");
+    require_once("php/comptes.php");
+    require_once("php/fichiers.php");
     
     if( isset($_SESSION["utilisateur"]) ){
         header("Location: reader.php");
@@ -10,7 +11,7 @@
 
     if( isset($_POST["username"]) && isset($_POST["password"]) ) {
         if( connection($_POST["username"], $_POST["password"]) ) {
-            header("Location: reader.php#remi-michel");
+            header("Location: reader.php#remi-michel-1");
             return;
         }
         else
@@ -41,6 +42,11 @@
           <div class="form-footer">
               <a href="inscription.php">S'inscrire</a>
           </div>
+        </div>
+        <div id="footer">
+            <span class="glyphicon glyphicon-copyright-mark"></span>
+            Rémi Dupré - 
+            <a href="https://github.com/remi100756/Indept">Github</a>
         </div>
     </body>
 </html>

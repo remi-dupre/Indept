@@ -206,10 +206,6 @@ function filtrer() {
         if(i > 1) { //Elimine la ligne de model et d'ajout
             var recherche = $("#recherche").val().toUpperCase();
             var texte = $(e).text().toUpperCase();
-            if( $(e).hasClass("danger") )
-                texte += " #REFUSE";
-            else
-                texte += " #ACCEPTE";
                 
                 
             if( texte.indexOf(recherche) == -1)

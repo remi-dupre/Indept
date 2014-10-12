@@ -112,4 +112,29 @@
         closedir($dir); 
         return json_encode($liste);
     }
+    
+    function getCSV($fichier) {
+        $c = json_decode(ouvre($fichier), true);
+        if( !$c )
+            return false;
+            
+        $r = "";
+        $r .= "nom;".$c["nom"] . ";receveur;".$c["receveur"] . ";donneur;".$c["donneur"] ."\n";
+        
+        foreach($c["liste"][0] as $key => $i) {
+            $r .= "$key;";
+        }
+        $r .= "\n";
+        foreach($c["liste"] as $i => $ligne) {
+            foreach($ligne as $key => $val) {
+                if( gettype($val) == "boolean" )
+                    $r .= $val ? "oui" : "non";
+                else
+                    $r .= "$val;";
+            }
+            $r .= "\n";
+        }
+        
+        return utf8_decode ($r);
+    }
 ?>

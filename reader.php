@@ -15,7 +15,6 @@
 
     <title class="doc_info nom">Lecteur de fichier dette</title>
 
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/dot-luv/jquery-ui.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/global.css" rel="stylesheet">
@@ -67,11 +66,16 @@
     <div class="col-md-10 col-md-offset-1 main">
       <h1 class="page-header"> Dettes de <em class="doc_info receveur_pseudo"></em> à <em class="doc_info donneur_pseudo"></em> </h1>
       
-      <div class="panel panel-info">
-        <!-- Default panel contents -->
-        <div class="panel-heading doc_info nom">Informations</div>
+      <div id="liste-alertes">
+        <div class="alert alert-danger" role="alert" style="display: none;">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <strong class="titre-alerte">Alerte !</strong> 
+          <span class="contenu-alerte">Message d'erreur</span>
+        </div>
+      </div>
       
-        <!-- Table -->
+      <div class="panel panel-info">
+        <div class="panel-heading doc_info nom">Informations</div>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -197,6 +201,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/general.js"></script>
 	<script src="js/editeur.js"></script>
 
   </body>

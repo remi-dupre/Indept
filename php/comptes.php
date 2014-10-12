@@ -32,12 +32,14 @@
             return false;
         if( $entree["passe"] != $entree["pwd_conf"] )
             return false;
+            
         foreach($entreeMinimum as $champ) {
             if( $entree[$champ] != "" )
                 $infos[$champ] = $entree[$champ];
             else
                 return false;
         }
+        $infos["creation_date"] = time();
         
         $infos["passe"] = crypt( $infos["passe"] );
         $json = json_encode($infos, JSON_PRETTY_PRINT);echo "$json";

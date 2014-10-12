@@ -1,4 +1,6 @@
 <?php
+    require_once("fonctions.php");
+
     function ouvre($fichier) {
         $contenu = file_get_contents("../fichiers/$fichier.json");
         $json = json_decode($contenu, true);
@@ -12,7 +14,7 @@
     }
     
     function creer($info) {
-        if(!isset($info["nom"]) || !isset($info["donneur"]))
+        if( !minEntrees($info, array("nom","donneur")) )
             return false;
             
         $contenu = array(
@@ -84,6 +86,8 @@
         if( $json["receveur"] == $_SESSION["utilisateur"]["login"] ) {
             // Virer les trucs interdits
         }
+        
+        $jsonNv["derniere_edition"] = time();
         
         file_put_contents("../fichiers/$fichier.json", json_encode($jsonNv, JSON_PRETTY_PRINT));
         return $nvContenu;

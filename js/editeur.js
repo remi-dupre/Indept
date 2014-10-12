@@ -19,6 +19,10 @@ function envoyer() {
         $("#envoyer").addClass("btn-success").attr("disabled", false);
     }).error(function(){
         $("#envoyer").addClass("btn-danger").attr("disabled", false);
+        erreur({
+            titre : "Echec de l'enregistrement !",
+            contenu : "Impossible de comuniquer les modifications au serveur"
+        })
     });
 }
 
@@ -54,7 +58,7 @@ function creer() {
     var info = {
         nom : $("#nomFichier").val(),
         donneur : $("#donneurFichier").val(),
-        partage : $("#priveFichier").val() ? "prive" : "public"
+        partage : $("#priveFichier").is(":checked") ? "prive" : "public"
     };
     
     $.ajax({
@@ -62,10 +66,21 @@ function creer() {
         url: "fonctions/fichier.php?add=" + JSON.stringify(info),
         dataType: "text"
     }).success(function(fichier){
-        window.location.hash = "#" + fichier;
-        ouvrir("fonctions/fichier.php?f=" + fichier);
+        if( fichier === "" ) {
+            erreur({
+                titre : "Echec de la création du fichier.",
+                contenu : "Les données ont été envoyées au serveur qui a détecté une erreur. Veuillez remplir correctement les différentes parties du formulaire."
+            });
+        }
+        else {
+            window.location.hash = "#" + fichier;
+            ouvrir("fonctions/fichier.php?f=" + fichier);
+        }
     }).error(function(){
-        alert("oublis pas d'afficher des erreurs");
+        erreur({
+            titre : "Echec de comunication avec le serveur.",
+            contenu : "L'envoit des données au serveur a échoué. Réessayez plus tard."
+        });
     });
     
     $("#fenCreer").modal("hide");

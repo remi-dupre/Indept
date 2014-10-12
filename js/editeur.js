@@ -27,10 +27,8 @@ function ouvrir(fichier) {
 	    contenu = json.contenu;
 	    fichiers = json.fichiers;
 	    comptes = json.comptes;
-	    
 	    $(".rm_on_file_change").remove();
 	    
-	    lire(contenu);
 	    for(var i in fichiers) {
 	        var element = $("<li><a></a></li>").addClass("rm_on_file_change");
 	        element.find("a").text(fichiers[i].nom).attr("href", "#" + fichiers[i].fichier);
@@ -39,6 +37,8 @@ function ouvrir(fichier) {
         $("#liste_fichiers>li>a").click(function(e){
             ouvrir("fonctions/fichier.php?f=" + $(e.currentTarget).attr("href").split("#")[1]);
         });
+	    
+	    lire(contenu);
 	});
 	$("#recherche").val("");
 }
@@ -75,12 +75,20 @@ function lireLigne(ligneJson) {
 	else if(ligneJson.montant < 0)
 	    ligne.addClass("success");
 	
-	var iconeRefuse = $("<span class='glyphicon'</span>");
+	var iconeRefuse = $("<span class='glyphicon'></span>");
 	if(ligneJson.refuse === true)
 	    iconeRefuse.addClass("glyphicon-remove-sign");
 	else
 	    iconeRefuse.addClass("glyphicon-ok-sign");
 	iconeRefuse.appendTo(ligne.find(".doc_info.status_icone"));
+	
+	date = new Date(ligneJson.date * 1000);
+	ligne.find(".doc_info.status_icone .glyphicon-info-sign").popover({
+	    placement: "left",
+	    title: ligneJson.titre +" ("+ligneJson.montant+" €)",
+	    content : date.toLocaleDateString() + " - " + ligneJson.description,
+	    trigger: "hover click"
+	});
 	    
 	ligne.appendTo("#liste");
 	majStats(ligneJson);

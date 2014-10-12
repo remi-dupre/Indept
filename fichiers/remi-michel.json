@@ -7,6 +7,24 @@
     "partage": "public",
     "liste": [
         {
+            "titre": "Ajustement",
+            "date": 1412978400,
+            "montant": 1,
+            "description": ""
+        },
+        {
+            "titre": "Ajustement",
+            "date": 1412978400,
+            "montant": -126.89001464844,
+            "description": ""
+        },
+        {
+            "titre": "Ajustement",
+            "date": 1412978400,
+            "montant": null,
+            "description": ""
+        },
+        {
             "titre": "Debug",
             "date": 1412978400,
             "montant": 43,

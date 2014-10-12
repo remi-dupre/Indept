@@ -103,8 +103,8 @@
               <th class="col-md-2">Titre</th>
               <th class="col-md-1">Montant</th>
               <th class="col-md-1">Date</th>
-              <th>Description</th>
-              <th class="icone_tr">#</th>
+              <th class="col-md-7">Description</th>
+              <th class="col-md-1 icone_tr">#</th>
             </tr>
           </thead>
           <tbody id="liste">
@@ -114,7 +114,9 @@
               <td class="montant"> <span class="doc_info liste-montant">Montant</span><em> €</em> </td>
               <td class="doc_info liste-date time-date">Date</td>
               <td class="doc_info liste-description">Description</td>
-              <td class="doc_info status_icone icone_tr"></td>
+              <td class="doc_info status_icone icone_tr">
+                <span class="glyphicon glyphicon-info-sign"></span>
+              </td>
             </tr>
             <!-- Ligne d'ajout de champ -->
             <tr style="display:none" id="ligne_ajout">

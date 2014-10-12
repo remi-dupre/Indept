@@ -10,3 +10,7 @@ a {
     width : 100%;
     border : none;
 }
+
+.dropdown-menu .glyphicon {
+    font-size : 0.9em;
+}

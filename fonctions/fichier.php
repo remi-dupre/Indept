@@ -4,6 +4,11 @@
     
     session_start();
     
+    if( isset($_GET["add"]) ) {
+        echo creer(json_decode($_GET["add"], true));
+        return;
+    }
+    
     $r = array(
         "fichiers" => json_decode(listerFichiers(), true),
         "comptes" => listerComptes()

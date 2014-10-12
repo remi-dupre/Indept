@@ -11,6 +11,31 @@
         return false;
     }
     
+    function creer($info) {
+        if(!isset($info["nom"]) || !isset($info["donneur"]))
+            return false;
+            
+        $contenu = array(
+            "nom" => $info["nom"],
+            "creation_date" => time(),
+            "derniere_edition" => time(),
+            "donneur" => $info["donneur"],
+            "receveur" => $_SESSION["utilisateur"]["login"],
+            "partage" => isset($info["partage"]) ? $info["partage"] : "public",
+            "liste" => array()
+        );
+            
+        $receveur = $contenu["receveur"];
+        $donneur =  $contenu["donneur"];
+        $numFichier = 1;
+        while( file_exists("../fichiers/$receveur-$donneur-$numFichier.json") ) {
+            $numFichier++;
+        }
+        
+        $contenu = json_encode($contenu, JSON_PRETTY_PRINT);
+        file_put_contents("../fichiers/$receveur-$donneur-$numFichier.json", $contenu);
+        return "$receveur-$donneur-$numFichier";
+    }
     
     function stats($fichier) {
         $json = ouvre($fichier);

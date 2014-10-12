@@ -39,6 +39,8 @@
             <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown"><strong class="caret"></strong></a>
             <ul class="dropdown-menu" role="menu" id="liste_fichiers">
               <!-- Liste des fichiers ouvrables -->
+              <li class="divider"></li>
+              <li><a data-toggle="modal" data-target="#fenCreer"><span class="glyphicon glyphicon-plus"></span> Créer un fichier</a></li>
             </ul>
           </li></ul>
           <ul class="nav navbar-nav navbar-right">
@@ -146,6 +148,47 @@
         <div class="modal-body">
           <p><a class="dl json" download="dept.json">Télécharger au format JSON</a></p>
           <p><a class="dl csv" download="dept.csv">Télécharger au format CSV</a> - pour importer dans excel ou d'autres logiciels</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="fenCreer" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Ajouter un fichier</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="nomFichier" class="col-sm-2 control-label">Nom</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nomFichier" placeholder="Nom du fichier">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="donneur" class="col-sm-2 control-label">Donneur</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="donneurFichier" placeholder="Personne avec qui partager le fichier">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="priveFichier"> Fichier privé
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button id="creerFichier" class="btn btn-primary">Créer le fichier</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

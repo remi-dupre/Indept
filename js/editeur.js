@@ -39,7 +39,7 @@ function ouvrir(fichier) {
 	    for(var i in fichiers) {
 	        var element = $("<li><a></a></li>").addClass("rm_on_file_change");
 	        element.find("a").text(fichiers[i].nom).attr("href", "#" + fichiers[i].fichier);
-	        element.appendTo("#liste_fichiers");
+	        element.prependTo("#liste_fichiers");
 	    }
         $("#liste_fichiers>li>a").click(function(e){
             ouvrir("fonctions/fichier.php?f=" + $(e.currentTarget).attr("href").split("#")[1]);
@@ -48,6 +48,27 @@ function ouvrir(fichier) {
 	    lire(contenu);
 	});
 	$("#recherche").val("");
+}
+
+function creer() {
+    var info = {
+        nom : $("#nomFichier").val(),
+        donneur : $("#donneurFichier").val(),
+        partage : $("#priveFichier").val() ? "prive" : "public"
+    };
+    
+    $.ajax({
+        type: "GET",
+        url: "fonctions/fichier.php?add=" + JSON.stringify(info),
+        dataType: "text"
+    }).success(function(fichier){
+        window.location.hash = "#" + fichier;
+        ouvrir("fonctions/fichier.php?f=" + fichier);
+    }).error(function(){
+        alert("oublis pas d'afficher des erreurs");
+    });
+    
+    $("#fenCreer").modal("hide");
 }
 
 function lire(json) {
@@ -199,12 +220,11 @@ $(document).ready(function() {
     ouvrir("fonctions/fichier.php?f=" + ancre());
     
     $("#ajouter_ligne").attr("disabled", false);
-    $("#fenDl").modal({show : false});
-    $("#btnDl").click(function(){ $("#fenDl").modal("show") });
     
     $("#recherche").keyup(filtrer);
     $("#ajouter_ligne").click(ajouterLigne);
     $("#envoyer").click(envoyer);
+    $("#creerFichier").click(creer);
     
     $("#inserer").click(inserer);
     $("#ligne_ajout input").keypress(function(e){

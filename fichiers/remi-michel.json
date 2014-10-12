@@ -10,67 +10,78 @@
             "titre": "Ajustement",
             "date": 1412978400,
             "montant": 1,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Ajustement",
             "date": 1412978400,
             "montant": -126.89001464844,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Ajustement",
             "date": 1412978400,
             "montant": null,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Debug",
             "date": 1412978400,
             "montant": 43,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Debug",
             "date": 1412978400,
             "montant": 42,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Debug",
             "date": 1412978400,
             "montant": 42,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Trop de bordel",
             "date": 1412978400,
             "montant": 99897985,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Test",
             "date": 1412978400,
             "montant": 100000,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Reset",
             "date": 1412805600,
             "montant": -1000000001545,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Mois test",
             "date": 1414796400,
             "montant": 1337,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "Mois encore",
             "date": 1421017200,
             "montant": 42,
-            "description": ""
+            "description": "",
+            "refuse": true
         },
         {
             "titre": "",
@@ -82,7 +93,8 @@
             "titre": "Test mois",
             "date": 1414796400,
             "montant": 42,
-            "description": ""
+            "description": "",
+            "refuse": false
         },
         {
             "titre": "Test float",
@@ -118,13 +130,15 @@
             "titre": "Test",
             "date": 1412460000,
             "montant": -99999999,
-            "description": "Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test "
+            "description": "Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test ",
+            "refuse": true
         },
         {
             "titre": "Loto",
             "date": 1412805600,
             "montant": 999999999999,
-            "description": "On a gagn\u00e9 au loto et on a d\u00e9cid\u00e9 de tout de donner"
+            "description": "On a gagn\u00e9 au loto et on a d\u00e9cid\u00e9 de tout de donner",
+            "refuse": true
         },
         {
             "titre": "Test",

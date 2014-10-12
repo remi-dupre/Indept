@@ -1,0 +1,27 @@
+.icone_tr {
+    text-align: right;
+}
+
+.icone_tr .glyphicon {
+    cursor: pointer;
+}
+
+tr>.icone_tr .glyphicon {
+   display: inline;
+}
+
+tr:not(.danger):hover>.icone_tr .glyphicon-ok-sign {
+   display: none;
+}
+
+tr:not(.danger):not(:hover)>.icone_tr .glyphicon-remove-sign {
+   display: none;
+}
+
+.danger:hover>.icone_tr .glyphicon-remove-sign {
+   display: none;
+}
+
+.danger:not(:hover)>.icone_tr .glyphicon-ok-sign {
+   display: none;
+}

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/dot-luv/jquery-ui.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/global.css" rel="stylesheet">
+    <link href="css/editeur.css" rel="stylesheet">
   </head>
 
   <body>
@@ -115,6 +116,8 @@
               <td class="doc_info liste-date time-date">Date</td>
               <td class="doc_info liste-description">Description</td>
               <td class="doc_info status_icone icone_tr">
+                <span class="glyphicon glyphicon-ok-sign refuse tt" title="Valider la demande" data-placement="left"></span>
+                <span class="glyphicon glyphicon-remove-sign refuse tt" title="Refuser la demande" data-placement="left"></span>
                 <span class="glyphicon glyphicon-info-sign"></span>
               </td>
             </tr>

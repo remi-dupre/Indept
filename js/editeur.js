@@ -13,7 +13,7 @@ function envoyer() {
     $("#envoyer").removeClass("btn-danger btn-success").attr("disabled", true);
     $.ajax({
         type: "GET",
-        url: "fonctions/fichier.php?f=" + ancre() + "&content=" + JSON.stringify(contenu, null, "\t"),
+        url: "fonctions/fichier.php?f=" + ancre() + "&content=" + JSON.stringify(contenu),
         dataType: "text"
     }).success(function(){
         $("#envoyer").addClass("btn-success").attr("disabled", false);
@@ -22,11 +22,18 @@ function envoyer() {
     });
 }
 
+function actualiser() {
+    $(".ligne_info").remove();
+    lire(contenu);
+    filtrer();
+}
+
 function ouvrir(fichier) {
 	$.getJSON(fichier, function(json) {
 	    contenu = json.contenu;
 	    fichiers = json.fichiers;
 	    comptes = json.comptes;
+	    
 	    $(".rm_on_file_change").remove();
 	    
 	    for(var i in fichiers) {
@@ -48,6 +55,8 @@ function lire(json) {
         total : { depense : 0, rembourse : 0 },
         mois : { depense : 0, rembourse : 0 }
     };
+    majStats({montant : 0});
+    
 	for(var key in json) {
 		console.inf(key + " : " + json[key]);
 		$(".doc_info." + key).text(json[key]);
@@ -59,9 +68,11 @@ function lire(json) {
 	
 	for(var i in json.liste) {
 		lireLigne(json.liste[i]);
+		$("#liste .ligne_info:last").attr("ligne", i);
 	}
 	
 	changerDates();
+	$(".tt").tooltip();
 }
 
 function lireLigne(ligneJson) {
@@ -75,13 +86,6 @@ function lireLigne(ligneJson) {
 	else if(ligneJson.montant < 0)
 	    ligne.addClass("success");
 	
-	var iconeRefuse = $("<span class='glyphicon'></span>");
-	if(ligneJson.refuse === true)
-	    iconeRefuse.addClass("glyphicon-remove-sign");
-	else
-	    iconeRefuse.addClass("glyphicon-ok-sign");
-	iconeRefuse.appendTo(ligne.find(".doc_info.status_icone"));
-	
 	date = new Date(ligneJson.date * 1000);
 	ligne.find(".doc_info.status_icone .glyphicon-info-sign").popover({
 	    placement: "left",
@@ -89,6 +93,13 @@ function lireLigne(ligneJson) {
 	    content : date.toLocaleDateString() + " - " + ligneJson.description,
 	    trigger: "hover click"
 	});
+    ligne.find(".icone_tr .refuse").click(function(e){
+        var ligne = parseInt($(e.target).parent().parent().attr("ligne"));
+        contenu.liste[ligne].refuse = !contenu.liste[ligne].refuse;
+    
+        actualiser();
+        envoyer();
+    });
 	    
 	ligne.appendTo("#liste");
 	majStats(ligneJson);
@@ -110,7 +121,7 @@ function majStats(ligne) {
         $(".stats.tout.depense").text(stats.total.depense +" €");
         $(".stats.tout.rembourse").text(stats.total.rembourse +" €");
         $(".stats.mois.depense").text(stats.mois.depense +" €");
-        $(".stats.mois.rembourse").text(stats.mois.depense +" €");
+        $(".stats.mois.rembourse").text(stats.mois.rembourse +" €");
     }
 }
 
@@ -143,10 +154,9 @@ function inserer() {
     };
     
     contenu.liste.unshift(ligne);
-    
-    $(".ligne_info").remove();
-    lire(contenu);
-    filtrer();
+
+    actualiser();
+    envoyer();
     
     $("#ajouter_ligne").attr("disabled", false);
     $("#ligne_ajout").hide();
@@ -159,7 +169,14 @@ function filtrer() {
     $("#liste>tr").each(function(i, e) {
         if(i > 1) { //Elimine la ligne de model et d'ajout
             var recherche = $("#recherche").val().toUpperCase();
-            if( $(e).text().toUpperCase().indexOf(recherche) == -1)
+            var texte = $(e).text().toUpperCase();
+            if( $(e).hasClass("danger") )
+                texte += " #REFUSE";
+            else
+                texte += " #ACCEPTE";
+                
+                
+            if( texte.indexOf(recherche) == -1)
                 $(e).hide();
             else
                 $(e).show();

@@ -4,3 +4,9 @@ function erreur(info) {
     message.find(".contenu-alerte").text(info.contenu);
     message.appendTo("#liste-alertes");
 }
+
+function ancre() {
+    var ancre = window.location.hash;
+    ancre = ancre.substring(1,ancre.length);
+    return ancre;
+}

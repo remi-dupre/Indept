@@ -1,3 +1,3 @@
 <?php
-    header("Location: reader.php#remi-michel-1");
+    header("Location: reader.php");
 ?>

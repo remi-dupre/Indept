@@ -1,3 +1,4 @@
 install:
-  - echo "test"
-  - ls -lha
+  - npm update
+  - grunt
+  - zip web indept.zip

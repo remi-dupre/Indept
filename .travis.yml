@@ -1,9 +1,8 @@
 language: javascript
+script: ./deploy.sh
 install:
   - npm install -g grunt-cli
   - npm update
-  - grunt
-  - zip -9r indept web/
 deploy:
   provider: releases
   api-key: fa037ff8824fe4404af3a4da7b354f661d224b03

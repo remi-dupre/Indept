@@ -2,5 +2,13 @@ install:
   - npm install -g grunt-cli
   - npm update
   - grunt
-  - zip web indept.zip
+  - zip -9r indept web/
   - travis setup releases
+deploy:
+  provider: releases
+  api-key: "GITHUB OAUTH TOKEN"
+  file: indept.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true

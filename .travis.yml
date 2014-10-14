@@ -1,0 +1,3 @@
+install:
+  - echo "test"
+  - ls -lha

@@ -1,3 +1,10 @@
+/*!
+ * editeur.min.css
+ * Feuille de style du lecteur
+ *  - Complète bootstrap
+ *  - Composé de editeur.css et general.css
+ */
+ 
 .icone_tr {
     text-align: right;
 }
@@ -5,6 +12,8 @@
 .icone_tr .glyphicon {
     cursor: pointer;
 }
+
+/* Affichage contextuel des icones pour ignorer ou non */
 
 tr>.icone_tr .glyphicon {
    display: inline;

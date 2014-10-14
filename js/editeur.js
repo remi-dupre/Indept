@@ -1,4 +1,9 @@
-/* ********** Fonctions nécessaires à l'édition / à la lecture d'un fichier ********** */
+/*!
+ * editeur.min.js
+ * Fonctions nécessaires à l'édition / à la lecture d'un fichier
+ *  - Composé de editeur.js et general.js
+ *  - Requiere Jquery
+ */
 
 var contenu = {}; // Contenu du fichier
 var fichiers = {}; // Liste des fichiers de l'utilisateur

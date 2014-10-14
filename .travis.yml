@@ -1,4 +1,6 @@
 install:
+  - npm install -g grunt-cli
   - npm update
   - grunt
   - zip web indept.zip
+  - travis setup releases

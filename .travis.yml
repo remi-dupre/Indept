@@ -3,7 +3,6 @@ install:
   - npm update
   - grunt
   - zip -9r indept web/
-  - travis setup releases
 deploy:
   provider: releases
   api-key: fa037ff8824fe4404af3a4da7b354f661d224b03

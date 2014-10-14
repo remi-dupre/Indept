@@ -6,7 +6,7 @@ install:
   - travis setup releases
 deploy:
   provider: releases
-  api-key: "GITHUB OAUTH TOKEN"
+  api-key: fa037ff8824fe4404af3a4da7b354f661d224b03
   file: indept.zip
   skip_cleanup: true
   on:

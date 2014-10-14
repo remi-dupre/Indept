@@ -16,8 +16,7 @@
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/dot-luv/jquery-ui.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/global.css" rel="stylesheet">
-    <link href="css/editeur.css" rel="stylesheet">
+    <link href="css/editeur.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -214,8 +213,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/general.js"></script>
-	<script src="js/editeur.js"></script>
+	<script src="js/editeur.min.js"></script>
 
   </body>
 </html>

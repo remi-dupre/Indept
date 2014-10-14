@@ -4,9 +4,9 @@
 
 /// Retourne le contenu de l'ancre
 function ancre() {
-    var ancre = window.location.hash;
-    ancre = ancre.substring(1, ancre.length);
-    return ancre;
+    var hash = window.location.hash;
+    hash = hash.substring(1, hash.length);
+    return hash;
 }
 
 /// Ajoute une erreur à la liste

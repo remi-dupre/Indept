@@ -99,7 +99,7 @@ function envoyer() {
         erreur({
             titre: "Echec de l'enregistrement !",
             contenu: "Impossible de comuniquer les modifications au serveur"
-        })
+        });
     });
 }
 

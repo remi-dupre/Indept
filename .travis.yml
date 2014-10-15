@@ -6,7 +6,9 @@ install:
 deploy:
   provider: releases
   api-key: fa037ff8824fe4404af3a4da7b354f661d224b03
-  file: indept.zip
+  file:
+   - indept-build.zip
+   - indept-build.tar.
   skip_cleanup: true
   on:
     tags: true

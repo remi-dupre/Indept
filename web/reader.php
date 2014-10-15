@@ -14,7 +14,7 @@
 
     <title class="doc_info nom">Lecteur de fichier dette</title>
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/dot-luv/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/editeur.min.css" rel="stylesheet">
   </head>
@@ -211,7 +211,7 @@
   </div>
 
 	<script src="js/jquery.min.js"></script>
-	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+	<script src="js/jquery-ui.min.js"></script> <!-- http://jqueryui.com/download/ : Core + Datepicker , theme Dot Luv -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/editeur.min.js"></script>
 

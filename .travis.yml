@@ -8,8 +8,8 @@ deploy:
   api-key: fa037ff8824fe4404af3a4da7b354f661d224b03
   file:
    - indept-build.zip
-   - indept-build.tar.
+   - indept-build.tar.gz
   skip_cleanup: true
   on:
-    tags: true
+    tags: false
     all_branches: true

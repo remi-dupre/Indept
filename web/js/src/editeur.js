@@ -64,7 +64,10 @@ function creer() {
 
 /// Récupérer un fichier
 function ouvrir(fichier) {
+    NProgress.start();
     $.getJSON(fichier, function(json) {
+        NProgress.set(0.5);
+        
         contenu = json.contenu;
         fichiers = json.fichiers;
         comptes = json.comptes;
@@ -81,6 +84,7 @@ function ouvrir(fichier) {
         });
 
         lire(contenu);
+        NProgress.done();
     });
     $("#recherche").val("");
 }
@@ -228,7 +232,7 @@ function majStats(ligne) {
     var mtnt = new Date();
 
     if (!ligne.refuse) {
-        var type = ligne.montant > 0 ? "depense" : "rembourse";
+        var type = ligne.montant >= 0 ? "depense" : "rembourse";
         if (date.getFullYear() == mtnt.getFullYear() && date.getMonth() == mtnt.getMonth()) {
             stats.mois[type] += Math.abs(ligne.montant);
         }

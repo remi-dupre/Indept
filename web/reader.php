@@ -15,8 +15,9 @@
     <title class="doc_info nom">Lecteur de fichier dette</title>
 
     <link rel="stylesheet" href="css/jquery-ui.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/editeur.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/nprogress.min.css">
+    <link rel="stylesheet" href="css/editeur.min.css">
   </head>
 
   <body>
@@ -62,7 +63,7 @@
        
 
     <div class="col-md-10 col-md-offset-1 main">
-      <h1 class="page-header"> Dettes de <em class="doc_info receveur_pseudo"></em> à <em class="doc_info donneur_pseudo"></em> </h1>
+      <h1 class="page-header"><span class="doc_info nom">Titre</span> <small><em class="doc_info donneur_pseudo"></em> à <em class="doc_info receveur_pseudo"></em></small> </h1>
       
       <div id="liste-alertes">
         <div class="alert alert-danger" role="alert" style="display: none;">
@@ -73,7 +74,7 @@
       </div>
       
       <div class="panel panel-info">
-        <div class="panel-heading doc_info nom">Informations</div>
+        <div class="panel-heading">Dépenses de <span class="doc_info receveur_pseudo"></span> et remboursements de <span class="doc_info donneur_pseudo"></span></div>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -81,10 +82,10 @@
               <th colspan=3>Total</th>
             </tr>
             <tr>
-              <th class="col-md-2 doc_info donneur_pseudo">Payé</th>
               <th class="col-md-2 doc_info receveur_pseudo">Dépensé</th>
               <th class="col-md-2 doc_info donneur_pseudo">Payé</th>
               <th class="col-md-2 doc_info receveur_pseudo">Dépensé</th>
+              <th class="col-md-2 doc_info donneur_pseudo">Payé</th>
               <th class="col-md-2">Total</th>
             </tr>
           </thead>
@@ -213,6 +214,7 @@
 	<script src="js/jquery.min.js"></script> <!-- jquery 2.1.0 -->
 	<script src="js/jquery-ui.min.js"></script> <!-- http://jqueryui.com/download/ : Core + Datepicker , theme Dot Luv -->
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/nprogress.min.js"></script>
 	<script src="js/editeur.min.js"></script>
 
   </body>

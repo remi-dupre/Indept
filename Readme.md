@@ -19,7 +19,7 @@ chown http:http dept/fichiers dept/comptes
 ## Dépendances
 Nécéssite php5 (les version antérieures n'ont pas été testées)
 
-### Outils tiers
+## Outils tiers
 
 #### Bibliotèques incluses
 - [jQuery 2.1](https://duckduckgo.com/l/?kh=-1&uddg=http%3A%2F%2Fjquery.com%2F)
@@ -30,9 +30,6 @@ Nécéssite php5 (les version antérieures n'ont pas été testées)
 #### Outils utilisés
 - [Travis](https://travis-ci.org/)
 - [Grunt](http://gruntjs.com/)
-   - uglify
-   - cssmin
-   - jshint
 
 
 

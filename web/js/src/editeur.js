@@ -173,13 +173,13 @@ function lire(json) {
     });
 
     for (var key in json) {
-        console.inf(key + " : " + json[key]);
+        console.info(key + " : " + json[key]);
         $(".doc_info." + key).text(json[key]);
     }
     $(".doc_info.receveur_pseudo").text(comptes[json.receveur]);
     $(".doc_info.donneur_pseudo").text(comptes[json.donneur]);
     $(".dl.json").attr("href", "fonctions/fichier.php?raw=json&f=" + ancre());
-    $(".dl.csv").attr("href", "fonctions/fichier.php?raw=csv&f=" + ancre());
+    $(".dl.csv").attr("href", "fonctions/fichier.php?raw=csv&f=" + ancre()); 
 
     for (var i in json.liste) {
         lireLigne(json.liste[i]);

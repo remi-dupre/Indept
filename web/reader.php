@@ -210,7 +210,7 @@
     </div>
   </div>
 
-	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script> <!-- jquery 2.1.0 -->
 	<script src="js/jquery-ui.min.js"></script> <!-- http://jqueryui.com/download/ : Core + Datepicker , theme Dot Luv -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/editeur.min.js"></script>

@@ -14,3 +14,7 @@ a {
 .dropdown-menu .glyphicon {
     font-size : 0.9em;
 }
+
+.model {
+    display: none;
+}

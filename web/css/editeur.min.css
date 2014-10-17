@@ -3,4 +3,4 @@
  * Feuille de style du lecteur
  *  - Complete bootstrap
  *  - Compose de editeur.css et general.css
- */.icone_tr{text-align:right}.icone_tr .glyphicon{cursor:pointer}tr>.icone_tr .glyphicon{display:inline}.danger:hover>.icone_tr .glyphicon-remove-sign,.danger:not(:hover)>.icone_tr .glyphicon-ok-sign,tr:not(.danger):hover>.icone_tr .glyphicon-ok-sign,tr:not(.danger):not(:hover)>.icone_tr .glyphicon-remove-sign{display:none}body{padding-top:60px}a{cursor:pointer}.input_ligne{width:100%;border:0}.dropdown-menu .glyphicon{font-size:.9em}
+ */.icone_tr{text-align:right}.icone_tr .glyphicon{cursor:pointer}tr>.icone_tr .glyphicon{display:inline}.danger:hover>.icone_tr .glyphicon-remove-sign,.danger:not(:hover)>.icone_tr .glyphicon-ok-sign,tr:not(.danger):hover>.icone_tr .glyphicon-ok-sign,tr:not(.danger):not(:hover)>.icone_tr .glyphicon-remove-sign{display:none}body{padding-top:60px}a{cursor:pointer}.input_ligne{width:100%;border:0}.dropdown-menu .glyphicon{font-size:.9em}.model{display:none}

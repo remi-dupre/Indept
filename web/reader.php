@@ -211,6 +211,16 @@
     </div>
   </div>
 
+  <!-- Le modèle des bulles sur les lignes -->
+  <div class="popover model" role="tooltip">
+    <div class="arrow"></div>
+    <h3 class="popover-title"><strong class="titre"></strong> : <span class="montant"></span> €</h3>
+    <div class="popover-content"><em class="date"></em>
+      <br />
+      <div class="description"></div>
+    </div>
+  </div>
+
 	<script src="js/jquery.min.js"></script> <!-- jquery 2.1.0 -->
 	<script src="js/jquery-ui.min.js"></script> <!-- http://jqueryui.com/download/ : Core + Datepicker , theme Dot Luv -->
 	<script src="js/bootstrap.min.js"></script>

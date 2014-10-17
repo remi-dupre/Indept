@@ -206,11 +206,19 @@ function lireLigne(ligneJson) {
     else if (ligneJson.montant < 0)
         ligne.addClass("success");
 
-    date = new Date(ligneJson.date * 1000);
+    var date = new Date(ligneJson.date * 1000);
+    
+    var pop = $(".popover.model").clone().removeClass("model");
+    pop.find(".titre").text(ligneJson.titre);
+    pop.find(".montant").text(ligneJson.montant);
+    pop.find(".date").text(date.toLocaleDateString());
+    pop.find(".description").text(ligneJson.description);
+    
     ligne.find(".doc_info.status_icone .glyphicon-info-sign").popover({
         placement: "left",
-        title: ligneJson.titre + " (" + ligneJson.montant + " €)",
-        content: date.toLocaleDateString() + " - " + ligneJson.description,
+        html: true,
+        title: pop.find(".popover-title").html(),
+        content: pop.find(".popover-content").html(),
         trigger: "hover click"
     });
     ligne.find(".icone_tr .refuse").click(function(e) {

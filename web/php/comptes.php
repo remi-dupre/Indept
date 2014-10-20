@@ -21,6 +21,8 @@
             }
         }
         closedir($dir); 
+        if( isset($_SESSION["utilisateur"]) )
+            $liste["actuel"] = $_SESSION["utilisateur"]["login"];
         return $liste;
     }
     

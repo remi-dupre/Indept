@@ -39,38 +39,6 @@
         return "$receveur-$donneur-$numFichier";
     }
     
-    function stats($fichier) {
-        $json = ouvre($fichier);
-        
-        $r = array(
-            "mois" => array(
-                "depense" => 0,
-                "rembourse" => 0
-            ),
-            "tout" => array(
-                "depense" => 0,
-                "rembourse" => 0
-            ),
-            "total" => 0
-        );
-        
-        if($json) {
-            $json = json_decode($json, true);
-            foreach($json["liste"] as $i => $ligne)  {
-                if( !$ligne["refuse"] ) {
-                    $action = ( $ligne["montant"] > 0) ? "depense" : "rembourse";
-                    $r["tout"][$action]+= abs($ligne["montant"]);
-                    if( date("YM", $ligne["date"]) == date("YM") ) {
-                        $r["mois"][$action]+= abs($ligne["montant"]);
-                    }
-                }
-            }
-                    $r["total"] = $r["tout"]["depense"] - $r["tout"]["rembourse"];
-        }
-        
-        return $r;
-    }
-    
     
     function modif($fichier, $nvContenu) {
         $contenu = ouvre($fichier);

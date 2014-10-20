@@ -30,7 +30,6 @@
         else {
             $r["contenu"] = json_decode(ouvre($_GET["f"]), true);
         }
-        $r["stats"] = stats($_GET["f"]);
     }
     
     echo json_encode($r);

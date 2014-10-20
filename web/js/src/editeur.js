@@ -118,7 +118,8 @@ function inserer() {
         titre: $("#ligne_ajout .liste-titre").val(),
         date: timestamp / 1000,
         montant: parseFloat($("#ligne_ajout .liste-montant").val()),
-        description: $("#ligne_ajout .liste-description").val()
+        description: $("#ligne_ajout .liste-description").val(),
+        createur: comptes.actuel
     };
 
     contenu.liste.unshift(ligne);

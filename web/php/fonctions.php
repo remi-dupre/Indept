@@ -13,7 +13,7 @@
     function erreur( $titre = "Erreur", $description = "Une erreur indéterminée a eu lieu.", $type = "danger", $from="php") {
         return array(
             "titre" => $titre,
-            "description" => $description,
+            "contenu" => $description,
             "type" => $type,
             "from" => $from
         );

@@ -42,11 +42,8 @@ function creer() {
         url: "fonctions/fichier.php?add=" + JSON.stringify(info),
         dataType: "text"
     }).success(function(fichier) {
-        if (fichier === "") {
-            erreur({
-                titre: "Echec de la création du fichier.",
-                contenu: "Les données ont été envoyées au serveur qui a détecté une erreur. Veuillez remplir correctement les différentes parties du formulaire."
-            });
+        if( isErreur(JSON.parse(fichier, true)) ) {
+            erreur(JSON.parse(fichier, true));
         }
         else {
             window.location.hash = "#" + fichier;
@@ -71,6 +68,8 @@ function ouvrir(fichier) {
         contenu = json.contenu;
         fichiers = json.fichiers;
         comptes = json.comptes;
+        for(var j in json.erreurs)
+            erreur(json.erreurs[j]);
 
         $(".rm_on_file_change").remove();
 
@@ -79,7 +78,7 @@ function ouvrir(fichier) {
             element.find("a").text(fichiers[i].nom).attr("href", "#" + fichiers[i].fichier);
             element.prependTo("#liste_fichiers");
         }
-        $("#liste_fichiers>li>a").click(function(e) {
+        $("#liste_fichiers>li>a:not(:last)").click(function(e) {
             ouvrir("fonctions/fichier.php?f=" + $(e.currentTarget).attr("href").split("#")[1]);
         });
 
@@ -177,10 +176,6 @@ function lire(json) {
         montant: 0
     });
 
-    for (var key in json) {
-        console.info(key + " : " + json[key]);
-        $(".doc_info." + key).text(json[key]);
-    }
     $(".doc_info.receveur_pseudo").text(comptes[json.receveur]);
     $(".doc_info.donneur_pseudo").text(comptes[json.donneur]);
     $(".dl.json").attr("href", "fonctions/fichier.php?raw=json&f=" + ancre());
@@ -241,7 +236,7 @@ function refuser(e) {
 // Supprime la ligne déclanchant l'évenement
 function supprimer(e) {
     var ligne = parseInt($(e.target).parent().parent().attr("ligne"));
-    contenu.liste.splice(ligne,1)
+    contenu.liste.splice(ligne,1);
 
     actualiser();
     envoyer();
@@ -249,7 +244,6 @@ function supprimer(e) {
 
 /// Prend en compte une ligne pour les stats
 function majStats(ligne) {
-    console.debug(ligne);
     var date = new Date(ligne.date * 1000);
     var mtnt = new Date();
 

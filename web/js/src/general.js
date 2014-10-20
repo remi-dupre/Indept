@@ -9,6 +9,10 @@ function ancre() {
     return hash;
 }
 
+function isErreur(array) {
+    return typeof array.titre !== "undefined" && typeof array.contenu !== "undefined" && typeof array.type !== "undefined" && typeof array.from !== "undefined" ;
+}
+
 /// Ajoute une erreur à la liste
 function erreur(info) {
     var message = $("#liste-alertes div:first").clone().show().addClass("rm_on_file_change");

@@ -7,14 +7,28 @@ a {
 }
 
 .input_ligne {
-    width : 100%;
-    border : none;
+    width: 100%;
+    border: none;
 }
 
 .dropdown-menu .glyphicon {
-    font-size : 0.9em;
+    font-size: 0.9em;
 }
 
 .model {
     display: none;
+}
+
+/* ********** Affichage des erreurs ********** */
+
+#liste-alertes {
+    position: fixed;
+    right: 10px;
+    top: 60px;
+    width: 300px;
+    z-index: 100;
+}
+
+#liste-alertes .alert {
+    margin-bottom: 5px;
 }

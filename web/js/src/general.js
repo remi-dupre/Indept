@@ -9,6 +9,7 @@ function ancre() {
     return hash;
 }
 
+/// Vérifie que l'array passé en argument est de type erreur
 function isErreur(array) {
     return typeof array.titre !== "undefined" && typeof array.contenu !== "undefined" && typeof array.type !== "undefined" && typeof array.from !== "undefined" ;
 }

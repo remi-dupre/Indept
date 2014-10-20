@@ -60,18 +60,19 @@
         </div>
       </div>
     </div>
+      
+    <!-- Affichage des alertes -->    
+    <div id="liste-alertes">
+      <div class="alert alert-danger" role="alert" style="display: none;">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong class="titre-alerte">Alerte !</strong> <br />
+        <span class="contenu-alerte">Message d'erreur</span>
+      </div>
+    </div>
        
 
     <div class="col-md-10 col-md-offset-1 main">
       <h1 class="page-header"><span class="doc_info nom">Titre</span> <small><em class="doc_info donneur_pseudo"></em> à <em class="doc_info receveur_pseudo"></em></small> </h1>
-      
-      <div id="liste-alertes">
-        <div class="alert alert-danger" role="alert" style="display: none;">
-          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <strong class="titre-alerte">Alerte !</strong> 
-          <span class="contenu-alerte">Message d'erreur</span>
-        </div>
-      </div>
       
       <div class="panel panel-info">
         <div class="panel-heading">Dépenses de <span class="doc_info receveur_pseudo"></span> et remboursements de <span class="doc_info donneur_pseudo"></span></div>

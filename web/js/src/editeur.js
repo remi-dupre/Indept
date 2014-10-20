@@ -222,16 +222,29 @@ function lireLigne(ligneJson) {
         content: pop.find(".popover-content").html(),
         trigger: "hover click"
     });
-    ligne.find(".icone_tr .refuse").click(function(e) {
-        var ligne = parseInt($(e.target).parent().parent().attr("ligne"));
-        contenu.liste[ligne].refuse = !contenu.liste[ligne].refuse;
-
-        actualiser();
-        envoyer();
-    });
+    ligne.find(".icone_tr .refuse").click(refuser);
+    ligne.find(".icone_tr .glyphicon-trash").click(supprimer);
 
     ligne.appendTo("#liste");
     majStats(ligneJson);
+}
+
+// Inverse l'attribut refuse sur la ligne déclanchée par l'evenement
+function refuser(e) {
+    var ligne = parseInt($(e.target).parent().parent().attr("ligne"));
+    contenu.liste[ligne].refuse = !contenu.liste[ligne].refuse;
+
+    actualiser();
+    envoyer();
+}
+
+// Supprime la ligne déclanchant l'évenement
+function supprimer(e) {
+    var ligne = parseInt($(e.target).parent().parent().attr("ligne"));
+    contenu.liste.splice(ligne,1)
+
+    actualiser();
+    envoyer();
 }
 
 /// Prend en compte une ligne pour les stats

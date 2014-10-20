@@ -121,6 +121,7 @@
               <td class="doc_info liste-date time-date">Date</td>
               <td class="doc_info liste-description">Description</td>
               <td class="doc_info status_icone icone_tr">
+                <span class="glyphicon glyphicon-trash tt" title="Supprimer la ligne" data-placement="left"></span>
                 <span class="glyphicon glyphicon-ok-sign refuse tt" title="Valider la demande" data-placement="left"></span>
                 <span class="glyphicon glyphicon-remove-sign refuse tt" title="Refuser la demande" data-placement="left"></span>
                 <span class="glyphicon glyphicon-info-sign"></span>
@@ -141,6 +142,9 @@
       </div>
     </div>
 
+  <!-- Fenêtres modales -->
+
+  <!-- Exportation -->
   <div class="modal fade" id="fenDl" >
     <div class="modal-dialog">
       <div class="modal-content">
@@ -156,6 +160,7 @@
     </div>
   </div>
 
+  <!-- Partage -->
   <div class="modal fade" id="fenShare" >
     <div class="modal-dialog">
       <div class="modal-content">
@@ -170,6 +175,7 @@
     </div>
   </div>
   
+  <!-- Création d'un nouveau fichier  -->
   <div class="modal fade" id="fenCreer" >
     <div class="modal-dialog">
       <div class="modal-content">

@@ -13,13 +13,17 @@
     cursor: pointer;
 }
 
-/* Affichage contextuel des icones pour ignorer ou non */
+/* Affichage contextuel des icones dans les ligne */
 
 tr>.icone_tr .glyphicon {
    display: inline;
 }
 
-tr:not(.danger):hover>.icone_tr .glyphicon-ok-sign {
+tr:not(:hover)>.icone_tr .glyphicon-trash {
+   display: none;
+}
+
+tr:not(.danger)>.icone_tr .glyphicon-ok-sign {
    display: none;
 }
 

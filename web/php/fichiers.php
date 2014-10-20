@@ -10,12 +10,14 @@
             return $contenu;
         }
         
-        return false;
+        return erreur("Impossible d'ouvrir le fichier.", "Vous n'avez pas les droits nécessaires pour lire ce fichier.");
     }
     
     function creer($info) {
         if( !minEntrees($info, array("nom","donneur")) )
-            return false;
+            return json_encode("Arguments incorrects.", "Le fichier n'as pas pu être créé.");
+        if( !isset($_SESSION["utilisateur"]["login"]) )
+            return json_encode("Non connecté.", "Impossible de créer un fichier sans vous connecter.");
             
         $contenu = array(
             "nom" => $info["nom"],
@@ -46,10 +48,10 @@
         $jsonNv  = json_decode($nvContenu, true);
         $est_proprietaire = $jsonAnc["donneur"] == $_SESSION["utilisateur"]["login"] || $jsonAnc["receveur"] == $_SESSION["utilisateur"]["login"];
         
-        if($contenu == false)
-            return "Erreur : Impossible d'ouvrir le fichier";
+        if(isErreur($contenu))
+            return $contenu;
         if(!$est_proprietaire)
-            return "Erreur : Permission non accordée";
+            return erreur("Permission non accordée.", "Vous n'etes pas propriétaire de ce fichier.");
             
         if( $json["receveur"] == $_SESSION["utilisateur"]["login"] ) {
             // Virer les trucs interdits
@@ -57,7 +59,8 @@
         
         $jsonNv["derniere_edition"] = time();
         
-        file_put_contents("../fichiers/$fichier.json", json_encode($jsonNv, JSON_PRETTY_PRINT));
+        if(! file_put_contents("../fichiers/$fichier.json", json_encode($jsonNv, JSON_PRETTY_PRINT)) )
+            return erreur("Impossible d'écrire dans le fichier.", "Vérifier les droits de PHP.");
         return $nvContenu;
     }
     

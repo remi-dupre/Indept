@@ -19,6 +19,10 @@ a {
     display: none;
 }
 
+.navbar-form {
+    display: block;
+}
+
 /* ********** Affichage des erreurs ********** */
 
 #liste-alertes {

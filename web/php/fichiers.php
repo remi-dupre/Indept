@@ -73,12 +73,14 @@ function listerFichiers() {
     $dir = opendir("../fichiers");
     while($file = readdir($dir)) {
         if($file != "." && $file != "..") {
-            $fichier = explode(".", $file)[0];
+            $fichier = explode(".", $file);
+			$fichier = $fichier[0];
             $proprio = explode("-", $fichier);
+			$contenu = json_decode(ouvre($fichier), true);
             if( in_array($_SESSION["utilisateur"]["login"], $proprio) ) {
                 $liste[] = array(
                     "fichier" => $fichier,
-                    "nom" => json_decode(ouvre($fichier), true)["nom"]
+                    "nom" => $contenu["nom"]
                 );
             }
         }

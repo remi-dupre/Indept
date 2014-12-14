@@ -16,8 +16,10 @@
         $dir = opendir("../comptes");
         while($file = readdir($dir)) {
             if($file != "." && $file != "..") {
-                $fichier = explode(".", $file)[0];
-                $liste[$fichier] = json_decode(file_get_contents("../comptes/$file"), true)["pseudo"];
+                $fichier = explode(".", $file);
+				$fichier = $fichier[0];
+                $contenu = json_decode(file_get_contents("../comptes/$file"), true);
+				$liste[$fichier] = $contenu["pseudo"];
             }
         }
         closedir($dir); 
@@ -30,7 +32,7 @@
         $entreeMinimum = array("login", "pseudo", "passe", "email");
         $infos = array();
         
-        if( file_exists("comptes/".$entree["login"].".json", $json) )
+        if( file_exists("comptes/".$entree["login"].".json") )
             return false;
         if( $entree["passe"] != $entree["pwd_conf"] )
             return false;
@@ -42,9 +44,9 @@
                 return false;
         }
         $infos["creation_date"] = time();
-        
+		
         $infos["passe"] = crypt( $infos["passe"] );
-        $json = json_encode($infos, JSON_PRETTY_PRINT);echo "$json";
+        $json = json_encode($infos);
         file_put_contents("comptes/".$infos["login"].".json", $json);
 
         return true;

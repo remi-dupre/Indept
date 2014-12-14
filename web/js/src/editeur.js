@@ -208,6 +208,7 @@ function lireLigne(ligneJson) {
     pop.find(".titre").text(ligneJson.titre);
     pop.find(".montant").text(ligneJson.montant);
     pop.find(".date").text(date.toLocaleDateString());
+    pop.find(".createur").text(ligneJson.createur);
     pop.find(".description").text(ligneJson.description);
     
     ligne.find(".doc_info.status_icone .glyphicon-info-sign").popover({

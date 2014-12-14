@@ -39,7 +39,7 @@ function creer($info) {
         $numFichier++;
     }
     
-    $contenu = json_encode($contenu, JSON_PRETTY_PRINT);
+    $contenu = json_encode($contenu);
     file_put_contents("../fichiers/$receveur-$donneur-$numFichier.json", $contenu);
     return "$receveur-$donneur-$numFichier";
 }
@@ -62,7 +62,7 @@ function modif($fichier, $nvContenu) {
     
     $jsonNv["derniere_edition"] = time();
     
-    if(! file_put_contents("../fichiers/$fichier.json", json_encode($jsonNv, JSON_PRETTY_PRINT)) )
+    if(! file_put_contents("../fichiers/$fichier.json", json_encode($jsonNv)) )
         return erreur("Impossible d'écrire dans le fichier.", "Vérifier les droits de PHP.");
     return $nvContenu;
 }

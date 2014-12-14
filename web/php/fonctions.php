@@ -15,13 +15,17 @@
             "titre" => $titre,
             "contenu" => $description,
             "type" => $type,
-            "from" => $from
+            "from" => $from,
+			"element" => "erreur"
         );
     }
     
     // Vérifie que l'array passé en argument est une erreur
     function isErreur( $array ) {
-        $corps = array("titre", "description", "type", "from");
-        return minEntrees($array, $corps);
+        $corps = array("titre", "description", "type", "from", "element");
+        if(minEntrees($array, $corps)) {
+			return $array["element"] == "erreur";
+		}
+		return false;
     }
 ?>

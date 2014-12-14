@@ -222,7 +222,8 @@
   <div class="popover model" role="tooltip">
     <div class="arrow"></div>
     <h3 class="popover-title"><strong class="titre"></strong> : <span class="montant"></span> €</h3>
-    <div class="popover-content"><em class="date"></em>
+    <div class="popover-content">
+      <em>Par <span class="createur">?</span> le <span class="date"></span></em
       <br />
       <div class="description"></div>
     </div>

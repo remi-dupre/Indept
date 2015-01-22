@@ -21,3 +21,8 @@ function erreur(info) {
     message.find(".contenu-alerte").text(info.contenu);
     message.appendTo("#liste-alertes");
 }
+
+/// Calcul un arrondis aux dixièmes
+function arrondis(nombre) {
+    return Math.round(nombre * 100) / 100;
+}

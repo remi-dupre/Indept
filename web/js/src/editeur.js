@@ -255,11 +255,11 @@ function majStats(ligne) {
         }
         stats.total[type] += Math.abs(ligne.montant);
 
-        $(".stats.total").text(stats.total.depense - stats.total.rembourse + " €");
-        $(".stats.tout.depense").text(stats.total.depense + " €");
-        $(".stats.tout.rembourse").text(stats.total.rembourse + " €");
-        $(".stats.mois.depense").text(stats.mois.depense + " €");
-        $(".stats.mois.rembourse").text(stats.mois.rembourse + " €");
+        $(".stats.total").text(arrondis(stats.total.depense - stats.total.rembourse) + " €");
+        $(".stats.tout.depense").text(arrondis(stats.total.depense) + " €");
+        $(".stats.tout.rembourse").text(arrondis(stats.total.rembourse) + " €");
+        $(".stats.mois.depense").text(arrondis(stats.mois.depense) + " €");
+        $(".stats.mois.rembourse").text(arrondis(stats.mois.rembourse) + " €");
     }
 }
 

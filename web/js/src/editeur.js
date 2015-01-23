@@ -176,6 +176,7 @@ function lire(json) {
         montant: 0
     });
 
+    $(".doc_info.nom").text(json.nom);
     $(".doc_info.receveur_pseudo").text(comptes[json.receveur]);
     $(".doc_info.donneur_pseudo").text(comptes[json.donneur]);
     $(".dl.json").attr("href", "fonctions/fichier.php?raw=json&f=" + ancre());

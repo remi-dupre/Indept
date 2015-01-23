@@ -33,15 +33,15 @@
           <a class="dropdown-toggle navbar-brand doc_info nom" data-toggle="dropdown">Fichier</a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav" ><li class="dropdown ">
-            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown"><strong class="caret"></strong></a>
-            <ul class="dropdown-menu" role="menu" id="liste_fichiers">
-              <!-- Liste des fichiers ouvrables -->
-              <li class="divider"></li>
-              <li><a data-toggle="modal" data-target="#fenCreer"><span class="glyphicon glyphicon-plus"></span> Créer un fichier</a></li>
-            </ul>
-          </li></ul>
           <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ouvrir<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu" id="liste_fichiers">
+                <!-- Liste des fichiers ouvrables -->
+                <li class="divider"></li>
+                <li><a data-toggle="modal" data-target="#fenCreer"><span class="glyphicon glyphicon-plus"></span> Créer un fichier</a></li>
+              </ul>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fichier<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">

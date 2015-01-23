@@ -51,10 +51,13 @@ function modif($fichier, $nvContenu) {
     $jsonNv  = json_decode($nvContenu, true);
     $est_proprietaire = $jsonAnc["donneur"] == $_SESSION["utilisateur"]["login"] || $jsonAnc["receveur"] == $_SESSION["utilisateur"]["login"];
     
+    $champsMin = ["nom", "creation_date", "liste"];
     if(isErreur($contenu))
         return $contenu;
     if(!$est_proprietaire)
         return erreur("Permission non accordée.", "Vous n'etes pas propriétaire de ce fichier.");
+    if(!minEntrees($jsonNv, $champsMin))
+        return erreur("Modification interdite.", "Le fichier est invalide.");
         
     if( $json["receveur"] == $_SESSION["utilisateur"]["login"] ) {
         // Virer les trucs interdits

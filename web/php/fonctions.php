@@ -22,7 +22,7 @@
     
     // Vérifie que l'array passé en argument est une erreur
     function isErreur( $array ) {
-        $corps = array("titre", "description", "type", "from", "element");
+        $corps = array("titre", "contenu", "type", "from", "element");
         if(minEntrees($array, $corps)) {
 			return $array["element"] == "erreur";
 		}

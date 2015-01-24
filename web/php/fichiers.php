@@ -7,7 +7,7 @@ function ouvre($fichier) {
     $contenu = file_get_contents("../fichiers/$fichier.json");
     $json = json_decode($contenu, true);
     
-    $est_proprietaire = $json["donneur"] == $_SESSION["utilisateur"]["login"] || $json["receveur"] == $_SESSION["utilisateur"]["login"];
+    $est_proprietaire = $json["proprietaire"] == $_SESSION["utilisateur"]["login"];
     if($est_proprietaire || $json["partage"] == "public") {
         return $contenu;
     }
@@ -17,7 +17,7 @@ function ouvre($fichier) {
 
 /// Crée un fichier et retourne le nom du fichier crée
 function creer($info) {
-    if( !minEntrees($info, array("nom","donneur")) )
+    if( !minEntrees($info, array("nom","proprietaire")) )
         return json_encode(erreur("Arguments incorrects.", "Le fichier n'as pas pu être créé."));
     if( !isset($_SESSION["utilisateur"]["login"]) )
         return json_encode(erreur("Non connecté.", "Impossible de créer un fichier sans vous connecter."));
@@ -26,22 +26,20 @@ function creer($info) {
         "nom" => $info["nom"],
         "creation_date" => time(),
         "derniere_edition" => time(),
-        "donneur" => $info["donneur"],
-        "receveur" => $_SESSION["utilisateur"]["login"],
+        "proprietaire" => $_SESSION["utilisateur"]["login"],
         "partage" => isset($info["partage"]) ? $info["partage"] : "public",
         "liste" => array()
     );
         
-    $receveur = $contenu["receveur"];
-    $donneur =  $contenu["donneur"];
+    $proprietaire = $contenu["proprietaire"];
     $numFichier = 1;
-    while( file_exists("../fichiers/$receveur-$donneur-$numFichier.json") ) {
+    while( file_exists("../fichiers/$proprietaire-$numFichier.json") ) {
         $numFichier++;
     }
     
     $contenu = json_encode($contenu);
-    file_put_contents("../fichiers/$receveur-$donneur-$numFichier.json", $contenu);
-    return "$receveur-$donneur-$numFichier";
+    file_put_contents("../fichiers/$proprietaire.json", $contenu);
+    return "$proprietaire-$numFichier";
 }
 
 // Modifie un fichier, retourne le nouveau contenu
@@ -49,7 +47,7 @@ function modif($fichier, $nvContenu) {
     $contenu = ouvre($fichier);
     $jsonAnc = json_decode($contenu, true);
     $jsonNv  = json_decode($nvContenu, true);
-    $est_proprietaire = $jsonAnc["donneur"] == $_SESSION["utilisateur"]["login"] || $jsonAnc["receveur"] == $_SESSION["utilisateur"]["login"];
+    $est_proprietaire = $jsonAnc["proprietaire"] == $_SESSION["utilisateur"]["login"];
     
     $champsMin = array("nom", "creation_date", "liste");
     if(isErreur($contenu))
@@ -59,7 +57,7 @@ function modif($fichier, $nvContenu) {
     if(!minEntrees($jsonNv, $champsMin))
         return erreur("Modification interdite.", "Le fichier est invalide.");
         
-    if( $json["receveur"] == $_SESSION["utilisateur"]["login"] ) {
+    if( $json["proprietaire"] == $_SESSION["utilisateur"]["login"] ) {
         // Virer les trucs interdits
     }
     
@@ -99,7 +97,7 @@ function getCSV($fichier) {
         return false;
         
     $r = "";
-    $r .= "nom;".$c["nom"] . ";receveur;".$c["receveur"] . ";donneur;".$c["donneur"] ."\n";
+    $r .= "nom;".$c["nom"] . ";proprietaire;".$c["proprietaire"] ."\n";
     
     foreach($c["liste"][0] as $key => $i) {
         $r .= "$key;";

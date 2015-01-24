@@ -33,7 +33,7 @@ $(document).ready(function() {
 function creer() {
     var info = {
         nom: $("#nomFichier").val(),
-        donneur: $("#donneurFichier").val(),
+        proprietaire: $("#proprietaireFichier").val(),
         partage: $("#priveFichier").is(":checked") ? "prive" : "public"
     };
 
@@ -177,8 +177,7 @@ function lire(json) {
     });
 
     $(".doc_info.nom").text(json.nom);
-    $(".doc_info.receveur_pseudo").text(comptes[json.receveur]);
-    $(".doc_info.donneur_pseudo").text(comptes[json.donneur]);
+    $(".doc_info.proprietaire_pseudo").text(comptes[json.proprietaire]);
     $(".dl.json").attr("href", "fonctions/fichier.php?raw=json&f=" + ancre());
     $(".dl.csv").attr("href", "fonctions/fichier.php?raw=csv&f=" + ancre()); 
 

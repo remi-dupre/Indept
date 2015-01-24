@@ -72,10 +72,10 @@
        
 
     <div class="col-md-10 col-md-offset-1 main">
-      <h1 class="page-header"><span class="doc_info nom">Titre</span> <small><em class="doc_info donneur_pseudo"></em> à <em class="doc_info receveur_pseudo"></em></small> </h1>
+      <h1 class="page-header"><span class="doc_info nom">Titre</span> <small><em class="doc_info proprietaire_pseudo"></em></small> </h1>
       
       <div class="panel panel-info">
-        <div class="panel-heading">Dépenses de <span class="doc_info receveur_pseudo"></span> et remboursements de <span class="doc_info donneur_pseudo"></span></div>
+        <div class="panel-heading">Statistiques sur le mois et depuis toujours</div>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -83,10 +83,10 @@
               <th colspan=3>Total</th>
             </tr>
             <tr>
-              <th class="col-md-2 doc_info receveur_pseudo">Dépensé</th>
-              <th class="col-md-2 doc_info donneur_pseudo">Payé</th>
-              <th class="col-md-2 doc_info receveur_pseudo">Dépensé</th>
-              <th class="col-md-2 doc_info donneur_pseudo">Payé</th>
+              <th class="col-md-2 doc_info">Dépensé</th>
+              <th class="col-md-2 doc_info">Encaissé</th>
+              <th class="col-md-2 doc_info">Dépensé</th>
+              <th class="col-md-2 doc_info">Encaissé</th>
               <th class="col-md-2">Total</th>
             </tr>
           </thead>

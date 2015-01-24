@@ -73,32 +73,59 @@
 
     <div class="col-md-10 col-md-offset-1 main">
       <h1 class="page-header"><span class="doc_info nom">Titre</span> <small><em class="doc_info proprietaire_pseudo"></em></small> </h1>
-      
-      <div class="panel panel-info">
-        <div class="panel-heading">Statistiques sur le mois et depuis toujours</div>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th colspan=2>Mois</th>
-              <th colspan=3>Total</th>
-            </tr>
-            <tr>
-              <th class="col-md-2 doc_info">Dépensé</th>
-              <th class="col-md-2 doc_info">Encaissé</th>
-              <th class="col-md-2 doc_info">Dépensé</th>
-              <th class="col-md-2 doc_info">Encaissé</th>
-              <th class="col-md-2">Total</th>
-            </tr>
-          </thead>
-          <tr>
-            <td class="stats mois depense">0 €</td>
-            <td class="stats mois rembourse">0 €</td>
-            <td class="stats tout depense">0 €</td>
-            <td class="stats tout rembourse">0 €</td>
-            <td class="stats total">0 €</td>
-          </tr>
-        </table>
-      </div>
+      <div class="row"> <!-- Bloc des statistiques -->
+        <div class="col-md-7 container"> <!-- Container Colone 1 -->
+          <div class="panel panel-info"> <!-- Tableau des statistiques -->
+            <div class="panel-heading">Statistiques sur le mois et depuis toujours</div>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th colspan=2>Mois</th>
+                  <th colspan=3>Total</th>
+                </tr>
+                <tr>
+                  <th class="col-md-2 doc_info">Dépensé</th>
+                  <th class="col-md-2 doc_info">Encaissé</th>
+                  <th class="col-md-2 doc_info">Dépensé</th>
+                  <th class="col-md-2 doc_info">Encaissé</th>
+                  <th class="col-md-2">Total</th>
+                </tr>
+              </thead>
+              <tr>
+                <td class="stats mois depense">0 €</td>
+                <td class="stats mois rembourse">0 €</td>
+                <td class="stats tout depense">0 €</td>
+                <td class="stats tout rembourse">0 €</td>
+                <td class="stats total">0 €</td>
+              </tr>
+            </table>
+          </div> <!-- Tableau des statistiques -->
+        </div> <!-- Container Colone 1 -->
+        <div class="col-md-5 container"> <!-- Container Colone 2 -->
+          <ul class="list-group borderless">
+            <li class="list-group-item">
+              <span class="glyphicon glyphicon glyphicon-stats"></span>
+              <span class="description">Moyenne par mois</span>
+              <span class="valeur">30 €</span>
+            </li>
+            <li class="list-group-item">
+              <span class="glyphicon glyphicon-time"></span>
+              <span class="description">Dernière modification</span>
+              <span class="valeur doc_info date_modif">12/12/12</span>
+            </li>
+            <li class="list-group-item">
+              <span class="glyphicon glyphicon-euro"></span>
+              <span class="description">Plus grosse dépense du mois</span>
+              <span class="valeur">85 €</span>
+            </li>
+            <li class="list-group-item">
+              <span class="glyphicon glyphicon-sunglasses"></span>
+              <span class="description">Mot le plus courrant</span>
+              <span class="valeur">VaKenTamer</span>
+            </li>
+          </ul>
+        </div> <!-- Container Colone 2 -->
+      </div> <!-- Bloc des statistiques -->
       
       <button id="ajouter_ligne" type="button" class="btn btn-primary btn-sm" ><span class="glyphicon glyphicon-plus"></span> Ajouter</button>
       <button id="envoyer" type="button" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-upload"></span> Enregistrer</button>
@@ -234,6 +261,11 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/nprogress.min.js"></script>
 	<script src="js/editeur.min.js"></script>
+	
+	<script src="js/moment.min.js"></script> <!-- http://momentjs.com/ -->
+	<script>
+	  moment.locale("fr");
+	</script>
 
   </body>
 </html>

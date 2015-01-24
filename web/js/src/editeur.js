@@ -178,6 +178,7 @@ function lire(json) {
 
     $(".doc_info.nom").text(json.nom);
     $(".doc_info.proprietaire_pseudo").text(comptes[json.proprietaire]);
+    $(".doc_info.date_modif").text(moment.unix(json.derniere_edition).fromNow());
     $(".dl.json").attr("href", "fonctions/fichier.php?raw=json&f=" + ancre());
     $(".dl.csv").attr("href", "fonctions/fichier.php?raw=csv&f=" + ancre()); 
 

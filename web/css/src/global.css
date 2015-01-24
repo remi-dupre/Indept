@@ -23,6 +23,38 @@ a {
     display: block;
 }
 
+/* ********** Listes ********** */
+
+.list-group.borderless > .list-group-item {
+    border-right : none;
+    border-left : none;
+}
+
+.list-group.borderless > .list-group-item:first-child {
+    border-top : none;
+}
+
+.list-group.borderless > .list-group-item:last-child {
+    border-bottom : none;
+}
+
+.list-group.borderless > .list-group-item > .glyphicon {
+    float : right;
+    color : gray;
+}
+
+.list-group.borderless > .list-group-item > .description {
+    color : gray;
+}
+
+.list-group.borderless > .list-group-item > .description:after {
+    content : " : ";
+}
+
+.list-group.borderless > .list-group-item > .valeur {
+    font-weight: bold;
+}
+
 /* ********** Affichage des erreurs ********** */
 
 #liste-alertes {

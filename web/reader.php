@@ -30,7 +30,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="dropdown-toggle navbar-brand doc_info nom" data-toggle="dropdown">Fichier</a>
+          <a class="dropdown-toggle navbar-brand" data-toggle="dropdown"><span class="glyphicon glyphicon-file"></span> Indept - Lecteur</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -77,7 +77,7 @@
         <div class="col-md-7 container"> <!-- Container Colone 1 -->
           <div class="panel panel-info"> <!-- Tableau des statistiques -->
             <div class="panel-heading">Statistiques sur le mois et depuis toujours</div>
-            <table class="table table-bordered">
+            <table class="table table-bordered table-stats">
               <thead>
                 <tr>
                   <th colspan=2>Mois</th>
@@ -92,44 +92,74 @@
                 </tr>
               </thead>
               <tr>
-                <td class="stats mois depense">0 €</td>
-                <td class="stats mois rembourse">0 €</td>
-                <td class="stats tout depense">0 €</td>
-                <td class="stats tout rembourse">0 €</td>
-                <td class="stats total">0 €</td>
+                <td class="stats mois depense">0</td>
+                <td class="stats mois gain">0</td>
+                <td class="stats tout depense">0</td>
+                <td class="stats tout gain">0</td>
+                <td class="stats tout total">0</td>
               </tr>
             </table>
           </div> <!-- Tableau des statistiques -->
         </div> <!-- Container Colone 1 -->
         <div class="col-md-5 container"> <!-- Container Colone 2 -->
-          <ul class="list-group borderless">
+          <ul class="list-group borderless stats">
             <li class="list-group-item">
               <span class="glyphicon glyphicon glyphicon-stats"></span>
               <span class="description">Moyenne par mois</span>
-              <span class="valeur">30 €</span>
+              <span class="valeur stats moyenne depense">0 €</span>
             </li>
             <li class="list-group-item">
               <span class="glyphicon glyphicon-time"></span>
               <span class="description">Dernière modification</span>
-              <span class="valeur doc_info date_modif">12/12/12</span>
+              <span class="valeur stats date_modif">12/12/12</span>
             </li>
             <li class="list-group-item">
               <span class="glyphicon glyphicon-euro"></span>
               <span class="description">Plus grosse dépense du mois</span>
-              <span class="valeur">85 €</span>
+              <span class="valeur stats grosse_depense mois">0 €</span>
+              <div class="popover" role="tooltip">
+                <div class="arrow"></div>
+                <h3 class="popover-title">Plus gros évenements</h3>
+                <div class="popover-content"><ul class="list-group borderless">
+                  <li class="list-group-item">
+                    <span class="description">Grosse dépense</span>
+                    <span class="stats tout grosse_depense"></span>
+                  </li>
+                  <li class="list-group-item">
+                    <span class="description">Gros gain</span>
+                    <span class="stats tout gros_gain"></span>
+                  </li>
+                  <li class="list-group-item">
+                    <span class="description">Grosse dépense du mois</span>
+                    <span class="stats mois grosse_depense"></span>
+                  </li>
+                  <li class="list-group-item">
+                    <span class="description">Gros gain du mois</span>
+                    <span class="stats mois gros_gain"></span>
+                  </li>
+                </ul></div>
+              </div>
             </li>
             <li class="list-group-item">
               <span class="glyphicon glyphicon-sunglasses"></span>
               <span class="description">Mot le plus courrant</span>
-              <span class="valeur">VaKenTamer</span>
+              <span class="valeur stats mot tout">VaKenTamer</span>
             </li>
           </ul>
         </div> <!-- Container Colone 2 -->
       </div> <!-- Bloc des statistiques -->
       
-      <button id="ajouter_ligne" type="button" class="btn btn-primary btn-sm" ><span class="glyphicon glyphicon-plus"></span> Ajouter</button>
-      <button id="envoyer" type="button" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-upload"></span> Enregistrer</button>
-
+      <div class="btn-group"> <!-- Liste des boutons -->
+        <button id="ajouter_ligne" type="button" class="btn btn-primary btn-sm" >
+          <span class="glyphicon glyphicon-plus"></span> Ajouter
+        </button>
+      </div>
+      <div class="btn-group right"> <!-- Liste des boutons -->
+        <button id="envoyer" type="button" class="btn btn-success btn-sm" >
+          <span class="glyphicon glyphicon-upload"></span> Enregistrer
+        </button>
+      </div>
+      
       <div class="table-responsive">
         <table class="table table-striped table-hover">
           <thead>

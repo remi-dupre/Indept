@@ -26,3 +26,24 @@ function erreur(info) {
 function arrondis(nombre) {
     return Math.round(nombre * 100) / 100;
 }
+
+function ranger(liste) {
+    /* Compte les occurences
+     * Entrée : une liste d'éléments quelconques
+     * Sortie : une liste des éléments par ordre croissant du nombre d'occurence
+     */
+     
+    var occurences = {};
+    var elements = [];
+    for(var i in liste) {
+        if(!occurences[liste[i]]) {
+            occurences[liste[i]] = 0;
+            elements.push(liste[i]);
+        }
+        occurences[liste[i]]++;
+    }
+    elements.sort(function(a, b) {
+        return occurences[b] - occurences[a];
+    });
+    return elements;
+}

@@ -1,14 +1,13 @@
 /*!
  * editeur.min.js
  * Fonctions nécessaires à l'édition / à la lecture d'un fichier
- *  - Composé de editeur.js et general.js
+ *  - Composé de editeur.js, stats.js et general.js
  *  - Requiere Jquery
  */
 
 var contenu = {}; // Contenu du fichier
 var fichiers = {}; // Liste des fichiers de l'utilisateur
 var comptes = {}; // Liste des utilisateurs
-var stats = {}; // Statistiques globales sur le fichier
 
 $(document).ready(function() {
     ouvrir("fonctions/fichier.php?f=" + ancre());
@@ -162,23 +161,8 @@ function actualiser() {
 
 /// Modifie la page par rapport à un nouveau JSON
 function lire(json) {
-    stats = {
-        total: {
-            depense: 0,
-            rembourse: 0
-        },
-        mois: {
-            depense: 0,
-            rembourse: 0
-        }
-    };
-    majStats({
-        montant: 0
-    });
-
     $(".doc_info.nom").text(json.nom);
     $(".doc_info.proprietaire_pseudo").text(comptes[json.proprietaire]);
-    $(".doc_info.date_modif").text(moment.unix(json.derniere_edition).fromNow());
     $(".dl.json").attr("href", "fonctions/fichier.php?raw=json&f=" + ancre());
     $(".dl.csv").attr("href", "fonctions/fichier.php?raw=csv&f=" + ancre()); 
 
@@ -187,6 +171,7 @@ function lire(json) {
         $("#liste .ligne_info:last").attr("ligne", i);
     }
 
+    majStats();
     changerDates();
     $(".tt").tooltip();
 }
@@ -223,7 +208,6 @@ function lireLigne(ligneJson) {
     ligne.find(".icone_tr .glyphicon-trash").click(supprimer);
 
     ligne.appendTo("#liste");
-    majStats(ligneJson);
 }
 
 // Inverse l'attribut refuse sur la ligne déclanchée par l'evenement
@@ -244,24 +228,42 @@ function supprimer(e) {
     envoyer();
 }
 
-/// Prend en compte une ligne pour les stats
-function majStats(ligne) {
-    var date = new Date(ligne.date * 1000);
-    var mtnt = new Date();
-
-    if (!ligne.refuse) {
-        var type = ligne.montant >= 0 ? "depense" : "rembourse";
-        if (date.getFullYear() == mtnt.getFullYear() && date.getMonth() == mtnt.getMonth()) {
-            stats.mois[type] += Math.abs(ligne.montant);
-        }
-        stats.total[type] += Math.abs(ligne.montant);
-
-        $(".stats.total").text(arrondis(stats.total.depense - stats.total.rembourse) + " €");
-        $(".stats.tout.depense").text(arrondis(stats.total.depense) + " €");
-        $(".stats.tout.rembourse").text(arrondis(stats.total.rembourse) + " €");
-        $(".stats.mois.depense").text(arrondis(stats.mois.depense) + " €");
-        $(".stats.mois.rembourse").text(arrondis(stats.mois.rembourse) + " €");
-    }
+function majStats() {
+    /* Update l'affichage des stats
+     * Entrée : lis la variable contenu
+     * Sortie : la page (en particulier l'en-tête est modifiée)
+     */
+     
+    var stats = statistiques(contenu);
+    var ceMois = mois(moment().unix());
+    
+    $(".stats.tout.total").text(stats.total.total);
+    $(".stats.tout.depense").text(stats.total.depense);
+    $(".stats.tout.gain").text(stats.total.gain);
+    $(".stats.mois.depense").text(stats.mois[ceMois].depense);
+    $(".stats.mois.gain").text(stats.mois[ceMois].gain);
+    
+    $(".stats.date_modif").text(moment.unix(contenu.derniere_edition).fromNow());
+    $(".stats.tout.mot").text(stats.total.mot);
+    
+    $(".stats.grosse_depense.mois").text(stats.mois[mois(moment().unix())].grosseDepense.montant + " €");
+    $(".stats.grosse_depense.tout").text(stats.total.grosseDepense.montant + " €");
+    $(".stats.gros_gain.mois").text(Math.abs(stats.mois[mois(moment().unix())].grosGain.montant) + " €");
+    $(".stats.gros_gain.tout").text(Math.abs(stats.total.grosGain.montant) + " €");
+    
+    $(".stats.moyenne.depense").text(stats.moyenne.depense + " €");
+    
+    $(".stats.list-group > .list-group-item").each(function(i, item){
+        var pop = $(item).find(".popover");
+        $(item).popover({
+            placement: "left",
+            html: true,
+            title: pop.find(".popover-title").html(),
+            content: pop.find(".popover-content").html(),
+            trigger: "hover click"
+        });
+        $(item).data("bs.popover").options.content = pop.find(".popover-content").html(); // Et pouf ! C'est dynamique
+    });
 }
 
 /// Applique les filtres au tableau

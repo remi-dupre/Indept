@@ -13,6 +13,14 @@
     cursor: pointer;
 }
 
+.btn-group.right {
+   float : right;
+}
+
+.btn-group {
+   margin-bottom : 10px;
+}
+
 /* Affichage contextuel des icones dans les ligne */
 
 tr>.icone_tr .glyphicon {

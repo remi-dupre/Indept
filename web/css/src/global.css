@@ -23,13 +23,38 @@ a {
     display: block;
 }
 
+/* ********** Tableau de statistiques ********** */
+
+.table-stats > thead > tr:last-child {
+    color : gray;
+}
+
+td.stats {
+    font-weight: bold;
+}
+
+td.stats:after {
+    content : " €";
+}
+
 /* ********** Listes ********** */
+
+/* Dans les popover */
+.popover-content > .list-group > .list-group-item {
+    padding: 5px;
+}
+
+.popover-content > .list-group {
+    font-size : 0.9em;
+    margin: 0px;
+}
 
 .list-group.borderless > .list-group-item {
     border-right : none;
     border-left : none;
 }
 
+/* Plus général */
 .list-group.borderless > .list-group-item:first-child {
     border-top : none;
 }

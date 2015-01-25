@@ -6,7 +6,7 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'web/js/editeur.min.js': ['web/js/src/editeur.js', 'web/js/src/general.js']
+                    'web/js/editeur.min.js': ['web/js/src/editeur.js','web/js/src/statistiques.js' , 'web/js/src/general.js']
                 }
             }
         },

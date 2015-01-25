@@ -123,19 +123,19 @@
                 <div class="popover-content"><ul class="list-group borderless">
                   <li class="list-group-item">
                     <span class="description">Grosse dépense</span>
-                    <span class="stats tout grosse_depense"></span>
+                    <span class="valeur stats tout grosse_depense"></span>
                   </li>
                   <li class="list-group-item">
                     <span class="description">Gros gain</span>
-                    <span class="stats tout gros_gain"></span>
+                    <span class="valeur stats tout gros_gain"></span>
                   </li>
                   <li class="list-group-item">
                     <span class="description">Grosse dépense du mois</span>
-                    <span class="stats mois grosse_depense"></span>
+                    <span class="valeur stats mois grosse_depense"></span>
                   </li>
                   <li class="list-group-item">
                     <span class="description">Gros gain du mois</span>
-                    <span class="stats mois gros_gain"></span>
+                    <span class="valeur stats mois gros_gain"></span>
                   </li>
                 </ul></div>
               </div>
@@ -143,7 +143,7 @@
             <li class="list-group-item">
               <span class="glyphicon glyphicon-sunglasses"></span>
               <span class="description">Mot le plus courrant</span>
-              <span class="valeur stats mot tout">VaKenTamer</span>
+              <span class="valeur stats mot tout">...</span>
             </li>
           </ul>
         </div> <!-- Container Colone 2 -->

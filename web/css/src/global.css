@@ -43,6 +43,10 @@ td.stats:after {
 .popover-content > .list-group > .list-group-item {
     padding: 5px;
 }
+.popover-content > .list-group > .list-group-item > .valeur {
+    float : right;
+    margin-left : 15px;
+}
 
 .popover-content > .list-group {
     font-size : 0.9em;

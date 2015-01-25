@@ -11,7 +11,7 @@
 
     if( isset($_POST["username"]) && isset($_POST["password"]) ) {
         if( connection($_POST["username"], $_POST["password"]) ) {
-            header("Location: reader.php#remi-michel-1");
+            header("Location: reader.php#remi-1");
             return;
         }
         else

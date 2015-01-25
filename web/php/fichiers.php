@@ -17,7 +17,7 @@ function ouvre($fichier) {
 
 /// Crée un fichier et retourne le nom du fichier crée
 function creer($info) {
-    if( !minEntrees($info, array("nom","proprietaire")) )
+    if( !minEntrees($info, array("nom")) )
         return json_encode(erreur("Arguments incorrects.", "Le fichier n'as pas pu être créé."));
     if( !isset($_SESSION["utilisateur"]["login"]) )
         return json_encode(erreur("Non connecté.", "Impossible de créer un fichier sans vous connecter."));
@@ -31,14 +31,14 @@ function creer($info) {
         "liste" => array()
     );
         
-    $proprietaire = $contenu["proprietaire"];
+    $proprietaire = $_SESSION["utilisateur"]["login"];
     $numFichier = 1;
     while( file_exists("../fichiers/$proprietaire-$numFichier.json") ) {
         $numFichier++;
     }
     
     $contenu = json_encode($contenu);
-    file_put_contents("../fichiers/$proprietaire.json", $contenu);
+    file_put_contents("../fichiers/$proprietaire-$numFichier.json", $contenu);
     return "$proprietaire-$numFichier";
 }
 

@@ -32,7 +32,6 @@ $(document).ready(function() {
 function creer() {
     var info = {
         nom: $("#nomFichier").val(),
-        proprietaire: $("#proprietaireFichier").val(),
         partage: $("#priveFichier").is(":checked") ? "prive" : "public"
     };
 

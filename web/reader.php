@@ -252,12 +252,6 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="donneur" class="col-sm-2 control-label">Donneur</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="donneurFichier" placeholder="Personne avec qui partager le fichier">
-              </div>
-            </div>
-            <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
                   <label>

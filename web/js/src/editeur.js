@@ -91,7 +91,7 @@ function envoyer() {
     $("#envoyer").removeClass("btn-danger btn-success").attr("disabled", true);
     $.ajax({
         type: "GET",
-        url: "fonctions/fichier.php?f=" + ancre() + "&content=" + escape(JSON.stringify(contenu)),
+        url: "fonctions/fichier.php?f=" + ancre() + "&content=" + encodeURIComponent(JSON.stringify(contenu)),
         dataType: "text"
     }).success(function() {
         $("#envoyer").addClass("btn-success").attr("disabled", false);

@@ -77,28 +77,30 @@
         <div class="col-md-7 container"> <!-- Container Colone 1 -->
           <div class="panel panel-info"> <!-- Tableau des statistiques -->
             <div class="panel-heading">Statistiques sur le mois et depuis toujours</div>
-            <table class="table table-bordered table-stats">
-              <thead>
+            <div class="table-responsive"> <!-- table-responsive --> 
+              <table class="table table-bordered table-stats">
+                <thead>
+                  <tr>
+                    <th colspan=2>Mois</th>
+                    <th colspan=3>Total</th>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2 doc_info">Dépensé</th>
+                    <th class="col-md-2 doc_info">Encaissé</th>
+                    <th class="col-md-2 doc_info">Dépensé</th>
+                    <th class="col-md-2 doc_info">Encaissé</th>
+                    <th class="col-md-2">Total</th>
+                  </tr>
+                </thead>
                 <tr>
-                  <th colspan=2>Mois</th>
-                  <th colspan=3>Total</th>
+                  <td class="stats mois depense">0</td>
+                  <td class="stats mois gain">0</td>
+                  <td class="stats tout depense">0</td>
+                  <td class="stats tout gain">0</td>
+                  <td class="stats tout total">0</td>
                 </tr>
-                <tr>
-                  <th class="col-md-2 doc_info">Dépensé</th>
-                  <th class="col-md-2 doc_info">Encaissé</th>
-                  <th class="col-md-2 doc_info">Dépensé</th>
-                  <th class="col-md-2 doc_info">Encaissé</th>
-                  <th class="col-md-2">Total</th>
-                </tr>
-              </thead>
-              <tr>
-                <td class="stats mois depense">0</td>
-                <td class="stats mois gain">0</td>
-                <td class="stats tout depense">0</td>
-                <td class="stats tout gain">0</td>
-                <td class="stats tout total">0</td>
-              </tr>
-            </table>
+              </table>
+            </div> <!-- table-responsive -->
           </div> <!-- Tableau des statistiques -->
         </div> <!-- Container Colone 1 -->
         <div class="col-md-5 container"> <!-- Container Colone 2 -->

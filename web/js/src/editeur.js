@@ -165,11 +165,10 @@ function lire(json) {
     $(".dl.json").attr("href", "fonctions/fichier.php?raw=json&f=" + ancre());
     $(".dl.csv").attr("href", "fonctions/fichier.php?raw=csv&f=" + ancre()); 
 
-    for (var i in json.liste) {
-        lireLigne(json.liste[i]);
-        $("#liste .ligne_info:last").attr("ligne", i);
+    for (var j = 0 ; j < json.liste.length ; j++) {
+        lireLigne(json.liste[j]);
+        $("#liste .ligne_info:last").attr("ligne", j);
     }
-
     majStats();
     changerDates();
     $(".tt").tooltip();

@@ -2,7 +2,7 @@
  * Etudie un fichier indept pour en retourner des caractéristiques statistiques
  */
 
-function statistiques(contenu) {
+function statistiques(contenuA) {
     /* Calcul des statistiques d'un fichier
      * Entrée :
      *  - contenu : L'array associé aux données du fichier
@@ -16,7 +16,7 @@ function statistiques(contenu) {
      *        --> voir calculsSurListe(...) (depense, gain , total)
      */
      
-     
+     var contenu = $.extend(true, [], contenuA); // On ne modifie pas l'entrée
      var statsTotal = calculsSurListe(contenu.liste);
      var listeMois = classerParMois(contenu.liste);
      var statsMois = {};
@@ -39,7 +39,7 @@ function statistiques(contenu) {
      return stats;
 }
 
-function calculsSurListe(liste) {
+function calculsSurListe(listeArg) {
     /* Donne les calculs sur une liste donnée
      * Entrée : une liste de lignes
      * Sortie : (array)
@@ -47,6 +47,8 @@ function calculsSurListe(liste) {
      *   - gain
      *   - total
      */
+     
+    var liste = $.extend(true, [], listeArg); // Pour ne pas modifier l'entrée
      
     var stats = {
         depense:0 , gain:0 , total:0 ,

@@ -70,6 +70,11 @@
         var texta = $($(a).find("td")[colone]).text().toLocaleLowerCase();
         var textb = $($(b).find("td")[colone]).text().toLocaleLowerCase();
         
+        if( !isNaN(parseFloat(texta)) && !isNaN(parseFloat(textb)) ) {
+            texta = parseFloat(texta);
+            textb = parseFloat(textb);
+        }
+        
         if(sens) return texta > textb;
         else     return textb > texta;
     }).appendTo(corps);

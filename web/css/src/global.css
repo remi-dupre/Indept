@@ -6,6 +6,10 @@ a {
     cursor: pointer;
 }
 
+.euro:after {
+    content: " €";
+}
+
 .input_ligne {
     width: 100%;
     border: none;

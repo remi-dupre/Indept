@@ -177,7 +177,7 @@
             <!-- Ligne de référence -->
             <tr style="display:none">
               <td class="doc_info liste-titre">Titre</td>
-              <td class="montant"> <span class="doc_info liste-montant">Montant</span><em> €</em> </td>
+              <td class="montant"> <span class="doc_info liste-montant euro">Montant</span></td>
               <td class="doc_info liste-date time-date">Date</td>
               <td class="doc_info liste-description">Description</td>
               <td class="doc_info status_icone icone_tr">

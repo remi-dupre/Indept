@@ -163,12 +163,12 @@
       </div>
       
       <div class="table-responsive">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover table-triable">
           <thead>
             <tr>
-              <th class="col-md-2">Titre</th>
-              <th class="col-md-1">Montant</th>
-              <th class="col-md-1">Date</th>
+              <th class="col-md-2 triable">Titre</th>
+              <th class="col-md-1 triable">Montant</th>
+              <th class="col-md-1 triable">Date</th>
               <th class="col-md-7">Description</th>
               <th class="col-md-1 icone_tr">#</th>
             </tr>

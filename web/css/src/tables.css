@@ -1,0 +1,16 @@
+/*
+ * Feuille de style pour les tableaux
+ */
+ 
+/* *************** Tris *************** */
+
+.triable {
+    cursor: pointer;
+}
+
+.tris {
+    display: inline;
+    margin-right: 5px;
+    font-size: 0.8em;
+    color: rgb(75, 75, 75);
+}

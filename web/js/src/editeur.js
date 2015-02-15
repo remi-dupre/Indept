@@ -1,7 +1,7 @@
 /*!
  * editeur.min.js
  * Fonctions nécessaires à l'édition / à la lecture d'un fichier
- *  - Composé de editeur.js, stats.js et general.js
+ *  - Composé de editeur.js, stats.js, general.js et tables.js
  *  - Requiere Jquery
  */
 
@@ -24,6 +24,8 @@ $(document).ready(function() {
         if (e.which == 13)
             inserer();
     });
+    
+    initTris();
 });
 
 /* ********** Fonctions AJAX ********** */

@@ -106,7 +106,7 @@
         <div class="col-md-5 container"> <!-- Container Colone 2 -->
           <ul class="list-group borderless stats">
             <li class="list-group-item">
-              <span class="glyphicon glyphicon glyphicon-stats"></span>
+              <span class="glyphicon glyphicon-stats"></span>
               <span class="description">Moyenne par mois</span>
               <span class="valeur stats moyenne depense">0 €</span>
             </li>

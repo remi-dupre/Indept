@@ -6,7 +6,17 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'web/js/editeur.min.js': ['web/js/src/editeur.js','web/js/src/statistiques.js' , 'web/js/src/general.js' , 'web/js/src/tables.js']
+                    'web/js/editeur.min.js': [
+                        'web/js/src/editeur.js',
+                        'web/js/src/statistiques.js',
+                        'web/js/src/general.js',
+                        'web/js/src/tables.js'
+                    ],
+                    'web/js/home.min.js' : [
+                        'web/js/src/home.js',
+                        'web/js/src/general.js',
+                        'web/js/src/statistiques.js'
+                    ]
                 }
             }
         },
@@ -16,6 +26,10 @@ module.exports = function(grunt) {
             },
             combine: {
                 files: {
+                    'web/css/home.min.css': [
+                        'web/css/src/home.css',
+                        'web/css/src/global.css'
+                    ],
                     'web/css/editeur.min.css': [
                         'web/css/src/editeur.css',
                         'web/css/src/global.css',

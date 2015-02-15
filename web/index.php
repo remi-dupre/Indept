@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="dropdown-toggle navbar-brand" data-toggle="dropdown"><span class="glyphicon glyphicon-file"></span> Indept - Accueil</a>
+          <a class="dropdown-toggle navbar-brand" data-toggle="dropdown"><span class="glyphicon glyphicon-home"></span> Indept - Accueil</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -75,7 +75,7 @@
                         <li class="list-group-item">
                           <span class="glyphicon glyphicon-sunglasses"></span>
                           <span class="description">Mot fréquent</span>
-                          <span class="valeur file-info mot">Daniel</span>
+                          <span class="valeur file-info mot">...</span>
                         </li>
                     </ul>
                 </div>

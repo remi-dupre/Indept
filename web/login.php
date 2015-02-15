@@ -5,13 +5,13 @@
     require_once("php/fichiers.php");
     
     if( isset($_SESSION["utilisateur"]) ){
-        header("Location: reader.php");
+        header("Location: index.php");
         return;
     }
 
     if( isset($_POST["username"]) && isset($_POST["password"]) ) {
         if( connection($_POST["username"], $_POST["password"]) ) {
-            header("Location: reader.php#remi-1");
+            header("Location: index.php");
             return;
         }
         else

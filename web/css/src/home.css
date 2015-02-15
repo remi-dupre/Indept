@@ -10,16 +10,16 @@
     border: 1px solid lightgrey;
     border-radius: 4px;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
-    
-    white-space: nowrap;
-    overflow: hidden;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .carte > h2 {
-    font-size: 2em;
     margin-top: 10px;
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid lightgrey;
+    
+    font-size: 2em;
+    overflow: auto;
 }

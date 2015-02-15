@@ -188,13 +188,11 @@ function lireLigne(ligneJson) {
         ligne.addClass("danger");
     else if (ligneJson.montant < 0)
         ligne.addClass("success");
-
-    var date = new Date(ligneJson.date * 1000);
     
     var pop = $(".popover.model").clone().removeClass("model");
     pop.find(".titre").text(ligneJson.titre);
     pop.find(".montant").text(ligneJson.montant);
-    pop.find(".date").text(date.toLocaleDateString());
+    pop.find(".date").text(moment(ligneJson.date*1000).format("DD/MM/YYYY"));
     pop.find(".createur").text(ligneJson.createur);
     pop.find(".description").text(ligneJson.description);
     
@@ -289,9 +287,7 @@ function changerDates() {
     $(".time-date").each(function(i, e) {
         var timestamp = parseInt($(e).text());
         if (!isNaN(timestamp)) {
-            var date = new Date(timestamp * 1000);
-            $(e).text(date.toLocaleDateString());
-            $(e).attr("title", date.toDateString());
+            $(e).text(moment(timestamp*1000).format("DD/MM/YYYY"));
         }
     });
 }

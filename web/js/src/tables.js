@@ -67,12 +67,20 @@
     var corps = tableau.find("tbody");
     var lignes = corps.find("tr"+selecteur);
     lignes.sort(function(a, b) {
-        var texta = $($(a).find("td")[colone]).text().toLocaleLowerCase();
-        var textb = $($(b).find("td")[colone]).text().toLocaleLowerCase();
+        a = $($(a).find("td")[colone]);
+        b = $($(b).find("td")[colone]);
+        var texta = a.text().toLocaleLowerCase();
+        var textb = b.text().toLocaleLowerCase();
         
         if( !isNaN(parseFloat(texta)) && !isNaN(parseFloat(textb)) ) {
             texta = parseFloat(texta);
             textb = parseFloat(textb);
+        }
+        var f = "DD/MM/YYYY";
+        if( a.hasClass("time-date") && b.hasClass("time-date") ) {
+            console.log("daniel ! ");
+            texta = moment(texta, f).valueOf();
+            textb = moment(textb, f).valueOf();
         }
         
         if(sens) return texta > textb;

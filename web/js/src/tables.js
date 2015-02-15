@@ -72,15 +72,13 @@
         var texta = a.text().toLocaleLowerCase();
         var textb = b.text().toLocaleLowerCase();
         
-        if( !isNaN(parseFloat(texta)) && !isNaN(parseFloat(textb)) ) {
+        if( a.hasClass("time-date") && b.hasClass("time-date") ) {
+            texta = moment(texta, "DD/MM/YYYY").valueOf();
+            textb = moment(textb, "DD/MM/YYYY").valueOf();
+        }
+        else if( !isNaN(parseFloat(texta)) && !isNaN(parseFloat(textb)) ) {
             texta = parseFloat(texta);
             textb = parseFloat(textb);
-        }
-        var f = "DD/MM/YYYY";
-        if( a.hasClass("time-date") && b.hasClass("time-date") ) {
-            console.log("daniel ! ");
-            texta = moment(texta, f).valueOf();
-            textb = moment(textb, f).valueOf();
         }
         
         if(sens) return texta > textb;

@@ -174,6 +174,7 @@ function lire(json) {
     majStats();
     changerDates();
     $(".tt").tooltip();
+    filtrer();
 }
 
 /// Ajoute une ligne
@@ -268,6 +269,7 @@ function majStats() {
 
 /// Applique les filtres au tableau
 function filtrer() {
+    trier($(".table-triable")[0]);
     $("#liste>tr").each(function(i, e) {
         if (i > 1) { //Elimine la ligne de model et d'ajout
             var recherche = $("#recherche").val().toUpperCase();

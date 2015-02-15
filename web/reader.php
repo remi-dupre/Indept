@@ -163,7 +163,7 @@
       </div>
       
       <div class="table-responsive">
-        <table class="table table-striped table-hover table-triable">
+        <table class="table table-striped table-hover table-triable" selecteur=".ligne_info" ordre="2" sens="false">
           <thead>
             <tr>
               <th class="col-md-2 triable">Titre</th>

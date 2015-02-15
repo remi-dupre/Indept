@@ -40,7 +40,7 @@
  
  function trier(tableau) {
      /* Effectue le tris sur un tableau passé en argument
-        Entrée : tableau, le tableau a trier, format n'importe quoi
+        Entrée : tableau : le tableau a trier, format n'importe quoi
         Sortie : le tableau est modifié */
         
     tableau = $(tableau);
@@ -60,5 +60,17 @@
         decroissant.prependTo(element);
     }
         
-    // Rien
+    // Application du tri
+    var selecteur = tableau.attr("selecteur") || "";
+    var colone = tableau.find("th").index(element);
+    
+    var corps = tableau.find("tbody");
+    var lignes = corps.find("tr"+selecteur);
+    lignes.sort(function(a, b) {
+        var texta = $($(a).find("td")[colone]).text().toLocaleLowerCase();
+        var textb = $($(b).find("td")[colone]).text().toLocaleLowerCase();
+        
+        if(sens) return texta > textb;
+        else     return textb > texta;
+    }).appendTo(corps);
  }

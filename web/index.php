@@ -12,7 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title class="doc_info nom">Lecteur de fichier dette</title>
+    <title class="doc_info nom">Indept</title>
+    <link rel="icon" href="css/images/icone.png">
     
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/nprogress.min.css">
@@ -29,7 +30,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="dropdown-toggle navbar-brand" data-toggle="dropdown"><span class="glyphicon glyphicon-home"></span> Indept - Accueil</a>
+          <a class="dropdown-toggle navbar-brand"><span class="glyphicon glyphicon-home"></span> Indept - Accueil</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -42,10 +43,9 @@
     
     <div class="jumbotron">
         <div class="container">
-            <h2>Bienvenue sur Indept</h2>
+            <h2>Bienvenue dans Indept</h2>
             <p>
-                Depuis cette page vous pouvez accèder à vos différents fichiers.
-                Certaines opérations de contrôles seront aussi proposées.
+              Depuis cette page vous pouvez acceder à vos différents fichiers.
             </p>
         </div>
     </div>

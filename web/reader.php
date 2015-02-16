@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title class="doc_info nom">Lecteur de fichier dette</title>
+    <link rel="icon" href="css/images/icone.png">
 
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -30,7 +31,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="dropdown-toggle navbar-brand" data-toggle="dropdown"><span class="glyphicon glyphicon-file"></span> Indept - Lecteur</a>
+          <a class="dropdown-toggle navbar-brand" href="index.php"><span class="glyphicon glyphicon-file"></span> Indept - Lecteur</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

@@ -61,7 +61,7 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit" name="inscription">S'inscrire</button>
           </form>
           <div class="form-footer">
-              <a href="login.php">Déjà inscrit</a>
+              <a href="login.php" class="btn btn-info btn-flat">Déjà inscrit</a>
           </div>
           <br />
           <div class="alert alert-warning" role="alert"><strong>En vous inscrivant vous faites confiance a votre hebergeur.</strong> Seul votre mot de passe est protègé.</div>
@@ -71,6 +71,6 @@
     	<script src="js/jquery.min.js"></script>
     	<script src="js/ripples.min.js"></script>
     	<script src="js/material.min.js"></script>
-    	<script> $.material.init(); </script>
+    	<script> $(function(){ $.material.init(); }); </script>
     </body>
 </html>

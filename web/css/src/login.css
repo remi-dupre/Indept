@@ -25,15 +25,10 @@ body, html {
   margin-bottom: 40px;
 }
 
-.btn {
+form .btn {
   margin-top: 40px;
 }
 
 .form-footer {
   text-align: right;
-  font-size: 18px;
-}
-
-.form-footer a:hover {
-  text-decoration: none;
 }

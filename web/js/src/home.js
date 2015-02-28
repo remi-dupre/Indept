@@ -49,4 +49,5 @@ function lire(json) {
     element.find(".file-info.mot").text(stats.total.mot);
     
     $("#liste-fichiers").append(element);
+    $.material.ripples();
 }

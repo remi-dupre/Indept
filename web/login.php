@@ -55,7 +55,7 @@
             </div>
           </form>
           <div class="form-footer">
-              <a href="inscription.php">S'inscrire</a>
+              <a href="inscription.php" class="btn btn-info btn-flat">S'inscrire</a>
           </div>
         </div>
         

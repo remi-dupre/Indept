@@ -16,12 +16,14 @@
     <link rel="icon" href="css/images/icone.png">
     
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ripples.min.css">
+    <link rel="stylesheet" href="css/material-wfont.min.css">
     <link rel="stylesheet" href="css/nprogress.min.css">
     <link rel="stylesheet" href="css/home.min.css">
   </head>
 
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -53,31 +55,51 @@
     <div class="container">
         <div class="row" id="liste-fichiers">
             <div class="col-md-4 model container-carte">
-                <div class="carte">
+                <div class="panel panel-success carte withripple"> <!-- carte -->
+                  <div class="panel-heading">
                     <h2 class="file-info nom">Nom du fichier</h2>
-                    <p>Dernière modification <span class="file-info derniere_modif">il y a 30 minutes</span></p>
-                    <ul class="list-group borderless">
+                  </div>
+                  <div class="panel-body">
+                    <p class="text-info">Dernière modification <span class="file-info derniere_modif">il y a ...</span></p>
+                    <ul class="list-group">
                         <li class="list-group-item">
-                          <span class="glyphicon glyphicon-fire"></span>
-                          <span class="description">Dépenses totales</span>
-                          <span class="euro valeur file-info total toujours">0</span>
+                          <div class="row-action-primary">
+                            <i class="glyphicon glyphicon-fire"></i>
+                          </div>
+                          <div class="row-content">
+                              <div class="least-content euro file-info total toujours">...</div>
+                              <p class="list-group-item-text">Dépenses totales</p>
+                          </div>
                         </li>
                         <li class="list-group-item">
-                          <span class="glyphicon glyphicon-stats"></span>
-                          <span class="description">Moyenne par mois</span>
-                          <span class="euro valeur file-info total mois">0</span>
+                          <div class="row-action-primary">
+                            <i class="glyphicon glyphicon-stats"></i>
+                          </div>
+                          <div class="row-content">
+                              <div class="least-content euro file-info total mois">...</div>
+                              <p class="list-group-item-text">Moyenne par mois</p>
+                          </div>
                         </li>
                         <li class="list-group-item">
-                          <span class="glyphicon glyphicon-th-list"></span>
-                          <span class="description">Nombre de lignes</span>
-                          <span class="valeur file-info lignes">0</span>
+                          <div class="row-action-primary">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                          </div>
+                          <div class="row-content">
+                              <div class="least-content file-info lignes">...</div>
+                              <p class="list-group-item-text">Nombre de lignes</p>
+                          </div>
                         </li>
                         <li class="list-group-item">
-                          <span class="glyphicon glyphicon-sunglasses"></span>
-                          <span class="description">Mot fréquent</span>
-                          <span class="valeur file-info mot">...</span>
+                          <div class="row-action-primary">
+                            <i class="glyphicon glyphicon-sunglasses"></i>
+                          </div>
+                          <div class="row-content">
+                              <div class="least-content valeur file-info mot">...</div>
+                              <p class="list-group-item-text">Mot fréquent</p>
+                          </div>
                         </li>
                     </ul>
+                  </div>
                 </div>
             </div>
         </div>
@@ -93,13 +115,24 @@
     </div>
 
 	<script src="js/jquery.min.js"></script> <!-- jquery 1.11.1 -->
+	
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/ripples.min.js"></script>
+	<script src="js/material.min.js"></script>
+	
 	<script src="js/home.min.js"></script>
 	<script src="js/nprogress.min.js"></script>
 	
 	<script src="js/moment.min.js"></script> <!-- http://momentjs.com/ -->
+	
 	<script>
 	  moment.locale("fr");
+	</script>
+	<script>
+	  $(function(){
+	    $.material.init()
+	    $.material.ripples(".navbar");
+	  });
 	</script>
   </body>
 </html>

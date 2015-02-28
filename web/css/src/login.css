@@ -2,9 +2,31 @@
  * Feuille de style pour les formulaires de connection et d'inscription
  */
  
-body {
-  padding-top: 50px;
-  background-color: #eee;
+body, html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.form-signin {
+  max-height: 95%;
+  max-width: 600px;
+  overflow-y: auto;
+}
+
+
+.input-group-addon i {
+  font-size: 20px;
+}
+
+.form-signin-heading {
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  margin-top: 40px;
 }
 
 .form-footer {
@@ -14,48 +36,4 @@ body {
 
 .form-footer a:hover {
   text-decoration: none;
-}
-
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
-}
-.form-signin .checkbox {
-  font-weight: normal;
-}
-.form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-}
-.form-signin .form-control:focus {
-  z-index: 2;
-}
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-signin input[type="submit"] {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-#footer {
-  position : fixed;
-  bottom : 10px;
-  right : 10px;
-  
-  cursor : pointer;
 }

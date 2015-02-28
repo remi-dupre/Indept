@@ -16,14 +16,16 @@ module.exports = function(grunt) {
                         'web/js/src/home.js',
                         'web/js/src/general.js',
                         'web/js/src/statistiques.js'
+                    ],
+                    'web/js/material.min.js' : [
+                        'web/js/material.min.js',
+                        'web/js/src/ripples.min.js'
                     ]
                 }
             }
         },
         cssmin: {
-            options: {
-                report: 'gzip'
-            },
+            options: { },
             combine: {
                 files: {
                     'web/css/home.min.css': [
@@ -37,6 +39,10 @@ module.exports = function(grunt) {
                     ],
                     'web/css/login.min.css': [
                         'web/css/src/login.css'
+                    ],
+                    'web/css/material.min.css': [
+                        'web/css/src/material-wfont.min.css',
+                        'web/css/src/ripples.min.css'
                     ]
                 }
             }

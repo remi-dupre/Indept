@@ -12,14 +12,3 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
-.carte .list-group .row-action-primary>i {
-    height: 20px;
-    width: 20px;
-    line-height: 20px;
-    font-size: 12px;
-}
-
-.carte .list-group .row-content {
-    min-height: 35px;
-}

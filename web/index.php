@@ -61,7 +61,7 @@
                   </div>
                   <div class="panel-body">
                     <p class="text-info">Dernière modification <span class="file-info derniere_modif">il y a ...</span></p>
-                    <ul class="list-group">
+                    <ul class="list-group list-sm">
                         <li class="list-group-item">
                           <div class="row-action-primary">
                             <i class="glyphicon glyphicon-fire"></i>

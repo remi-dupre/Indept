@@ -189,20 +189,6 @@ function lireLigne(ligneJson) {
     else if (ligneJson.montant < 0)
         ligne.addClass("success");
     
-    var pop = $(".popover.model").clone().removeClass("model");
-    pop.find(".titre").text(ligneJson.titre);
-    pop.find(".montant").text(ligneJson.montant);
-    pop.find(".date").text(moment(ligneJson.date*1000).format("DD/MM/YYYY"));
-    pop.find(".createur").text(ligneJson.createur);
-    pop.find(".description").text(ligneJson.description);
-    
-    ligne.find(".doc_info.status_icone .glyphicon-info-sign").popover({
-        placement: "left",
-        html: true,
-        title: pop.find(".popover-title").html(),
-        content: pop.find(".popover-content").html(),
-        trigger: "hover click"
-    });
     ligne.find(".icone_tr .refuse").click(refuser);
     ligne.find(".icone_tr .glyphicon-trash").click(supprimer);
 
@@ -251,18 +237,6 @@ function majStats() {
     $(".stats.gros_gain.tout").text(Math.abs(stats.total.grosGain.montant) + " €");
     
     $(".stats.moyenne.depense").text(stats.moyenne.depense + " €");
-    
-    $(".stats.list-group > .list-group-item").each(function(i, item){
-        var pop = $(item).find(".popover");
-        $(item).popover({
-            placement: "left",
-            html: true,
-            title: pop.find(".popover-title").html(),
-            content: pop.find(".popover-content").html(),
-            trigger: "hover click"
-        });
-        $(item).data("bs.popover").options.content = pop.find(".popover-content").html(); // Et pouf ! C'est dynamique
-    });
 }
 
 /// Applique les filtres au tableau

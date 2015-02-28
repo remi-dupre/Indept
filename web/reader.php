@@ -16,13 +16,17 @@
     <link rel="icon" href="css/images/icone.png">
 
     <link rel="stylesheet" href="css/jquery-ui.min.css">
+    
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ripples.min.css">
+    <link rel="stylesheet" href="css/material-wfont.min.css">
+    <link rel="stylesheet" href="css/nprogress.min.css">
     <link rel="stylesheet" href="css/nprogress.min.css">
     <link rel="stylesheet" href="css/editeur.min.css">
   </head>
 
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -56,7 +60,7 @@
             <li><a href="unlogin.php">Déconnection</a></li>
           </ul>
           <span class="navbar-form navbar-right">
-            <input id="recherche" type="text" class="form-control" placeholder="Filtrer ...">
+            <input id="recherche" type="text" class="form-control floating-label" placeholder="Filtrer ...">
           </span>
         </div>
       </div>
@@ -76,7 +80,7 @@
       <h1 class="page-header"><span class="doc_info nom">Titre</span> <small><em class="doc_info proprietaire_pseudo"></em></small> </h1>
       <div class="row"> <!-- Bloc des statistiques -->
         <div class="col-md-7 container"> <!-- Container Colone 1 -->
-          <div class="panel panel-info"> <!-- Tableau des statistiques -->
+          <div class="panel panel-primary"> <!-- Tableau des statistiques -->
             <div class="panel-heading">Statistiques sur le mois et depuis toujours</div>
             <div class="table-responsive"> <!-- table-responsive --> 
               <table class="table table-bordered table-stats">
@@ -105,48 +109,42 @@
           </div> <!-- Tableau des statistiques -->
         </div> <!-- Container Colone 1 -->
         <div class="col-md-5 container"> <!-- Container Colone 2 -->
-          <ul class="list-group borderless stats">
+          <ul class="list-group list-sm stats">
             <li class="list-group-item">
-              <span class="glyphicon glyphicon-stats"></span>
-              <span class="description">Moyenne par mois</span>
-              <span class="valeur stats moyenne depense">0 €</span>
-            </li>
-            <li class="list-group-item">
-              <span class="glyphicon glyphicon-time"></span>
-              <span class="description">Dernière modification</span>
-              <span class="valeur stats date_modif">12/12/12</span>
-            </li>
-            <li class="list-group-item">
-              <span class="glyphicon glyphicon-euro"></span>
-              <span class="description">Plus grosse dépense du mois</span>
-              <span class="valeur stats grosse_depense mois">0 €</span>
-              <div class="popover" role="tooltip">
-                <div class="arrow"></div>
-                <h3 class="popover-title">Plus gros évenements</h3>
-                <div class="popover-content"><ul class="list-group borderless">
-                  <li class="list-group-item">
-                    <span class="description">Grosse dépense</span>
-                    <span class="valeur stats tout grosse_depense"></span>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="description">Gros gain</span>
-                    <span class="valeur stats tout gros_gain"></span>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="description">Grosse dépense du mois</span>
-                    <span class="valeur stats mois grosse_depense"></span>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="description">Gros gain du mois</span>
-                    <span class="valeur stats mois gros_gain"></span>
-                  </li>
-                </ul></div>
+              <div class="row-action-primary">
+                <i class="glyphicon glyphicon-stats"></i>
+              </div>
+              <div class="row-content">
+                  <div class="least-content stats moyenne depense">...</div>
+                  <p class="list-group-item-text">Moyenne par mois</p>
               </div>
             </li>
             <li class="list-group-item">
-              <span class="glyphicon glyphicon-sunglasses"></span>
-              <span class="description">Mot le plus courrant</span>
-              <span class="valeur stats mot tout">...</span>
+              <div class="row-action-primary">
+                <i class="glyphicon glyphicon-time"></i>
+              </div>
+              <div class="row-content">
+                  <div class="least-content stats date_modif">...</div>
+                  <p class="list-group-item-text">Dernière modification</p>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row-action-primary">
+                <i class="glyphicon glyphicon-euro"></i>
+              </div>
+              <div class="row-content">
+                  <div class="least-content stats grosse_depense mois">...</div>
+                  <p class="list-group-item-text">Plus grosse dépense du mois</p>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row-action-primary">
+                <i class="glyphicon glyphicon-sunglasses"></i>
+              </div>
+              <div class="row-content">
+                  <div class="least-content stats mot tout">...</div>
+                  <p class="list-group-item-text">Mot le plus courrant</p>
+              </div>
             </li>
           </ul>
         </div> <!-- Container Colone 2 -->
@@ -185,7 +183,6 @@
                 <span class="glyphicon glyphicon-trash tt" title="Supprimer la ligne" data-placement="left"></span>
                 <span class="glyphicon glyphicon-ok-sign refuse tt" title="Valider la demande" data-placement="left"></span>
                 <span class="glyphicon glyphicon-remove-sign refuse tt" title="Refuser la demande" data-placement="left"></span>
-                <span class="glyphicon glyphicon-info-sign"></span>
               </td>
             </tr>
             <!-- Ligne d'ajout de champ -->
@@ -272,26 +269,25 @@
     </div>
   </div>
 
-  <!-- Le modèle des bulles sur les lignes -->
-  <div class="popover model" role="tooltip">
-    <div class="arrow"></div>
-    <h3 class="popover-title"><strong class="titre"></strong> : <span class="montant"></span> €</h3>
-    <div class="popover-content">
-      <em>Par <span class="createur">?</span> le <span class="date"></span></em
-      <br />
-      <div class="description"></div>
-    </div>
-  </div>
-
 	<script src="js/jquery.min.js"></script> <!-- jquery 1.11.1 -->
 	<script src="js/jquery-ui.min.js"></script> <!-- http://jqueryui.com/download/ : Core + Datepicker , theme Dot Luv -->
+	
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/ripples.min.js"></script>
+	<script src="js/material.min.js"></script>
+	
 	<script src="js/nprogress.min.js"></script>
 	<script src="js/editeur.min.js"></script>
 	
 	<script src="js/moment.min.js"></script> <!-- http://momentjs.com/ -->
 	<script>
 	  moment.locale("fr");
+	</script>
+	<script>
+	  $(function(){
+	    $.material.init()
+	    $.material.ripples(".navbar");
+	  });
 	</script>
 
   </body>

@@ -21,6 +21,18 @@
    margin-bottom : 10px;
 }
 
+/* Ligne d'insertion */
+
+#ligne_ajout .btn {
+   font-size: 1em;
+   margin: 0px;
+   padding-top: 0px;
+   padding-bottom: 0px;
+}
+#ligne_ajout input {
+   background: none;
+}
+
 /* Affichage contextuel des icones dans les ligne */
 
 tr>.icone_tr .glyphicon {

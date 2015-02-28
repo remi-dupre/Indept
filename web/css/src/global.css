@@ -67,29 +67,16 @@ td.stats:after {
 }
 
 /* Plus général */
-.list-group.borderless > .list-group-item:first-child {
-    border-top : none;
+
+.list-group.list-sm .row-action-primary>i {
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    font-size: 10px;
 }
 
-.list-group.borderless > .list-group-item:last-child {
-    border-bottom : none;
-}
-
-.list-group.borderless > .list-group-item > .glyphicon {
-    float : right;
-    color : gray;
-}
-
-.list-group.borderless > .list-group-item > .description {
-    color : gray;
-}
-
-.list-group.borderless > .list-group-item > .description:after {
-    content : " : ";
-}
-
-.list-group.borderless > .list-group-item > .valeur {
-    font-weight: bold;
+.list-group.list-sm .row-content {
+    min-height: 35px;
 }
 
 /* ********** Affichage des erreurs ********** */

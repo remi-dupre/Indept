@@ -52,10 +52,18 @@
         </div>
     </div>
     
+    <div class="btn btn-fab btn-raised btn-material-red expendable" id="quickadd">
+      <i class="mdi-content-add expendable-btn"></i>
+      <div class="container expendable-content">
+        <p>DAN</p>
+        <div class="btn expendable-close">Réduire</div>
+      </div>
+    </div>
+    
     <div class="container">
         <div class="row" id="liste-fichiers">
             <div class="col-md-4 model container-carte">
-                <div class="panel panel-success carte withripple"> <!-- carte -->
+                <div class="panel panel-material-indigo-900 carte withripple"> <!-- carte -->
                   <div class="panel-heading">
                     <h2 class="file-info nom">Nom du fichier</h2>
                   </div>
@@ -130,8 +138,13 @@
 	</script>
 	<script>
 	  $(function(){
-	    $.material.init()
-	    $.material.ripples(".navbar");
+	    $.material.options = {
+        "withRipples": ".btn:not(.btn-link):not(.expendable), .card-image, .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple",
+        "inputElements": "input.form-control, textarea.form-control, select.form-control",
+        "checkboxElements": ".checkbox > label > input[type=checkbox]",
+        "radioElements": ".radio > label > input[type=radio]"
+      }
+	    $.material.init();
 	  });
 	</script>
   </body>

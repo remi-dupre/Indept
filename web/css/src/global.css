@@ -79,6 +79,15 @@ td.stats:after {
     min-height: 35px;
 }
 
+.btn-raised {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1337;
+    padding: 10px;
+    font-size: 36px;
+}
+
 /* ********** Affichage des erreurs ********** */
 
 #liste-alertes {

@@ -16,6 +16,16 @@ $(document).ready(function() {
             $.getJSON("fonctions/fichier.php?f=" + fichiers[i].fichier, lire);
         }
     });
+    
+    $("#quickadd>i").click(function(){
+        if( !$("#quickadd").hasClass("expend") ) {
+            $("#quickadd").addClass("expend");
+        }
+    });
+    
+    $("#quickadd>.expendable-content .expendable-close").click(function(){
+            $("#quickadd").removeClass("expend");
+    });
 });
 
 function lire(json) {

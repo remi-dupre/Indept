@@ -29,33 +29,33 @@
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="mdi-action-account-circle"></i></span>
-                    <input type="text" name="login" class="form-control floating-label" placeholder="Identifiant" required autofocus>
+                    <input type="text" name="login" class="form-control floating-label" placeholder="Identifiant" data-hint="L'identifiant avec lequel vous allez vous connecter." required autofocus>
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="mdi-action-perm-identity"></i></span>
-                    <input type="text" name="pseudo" class="form-control floating-label" placeholder="Nom apparent" required>
+                    <input type="text" name="pseudo" class="form-control floating-label" placeholder="Nom apparent" data-hint="Le nom qui sera affiché." required>
                 </div>
             </div>
             <br />
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="mdi-action-lock"></i></span>
-                    <input type="password" name="passe" class="form-control floating-label" placeholder="Mot de passe" required>
+                    <input type="password" name="passe" class="form-control floating-label" placeholder="Mot de passe" data-hint="Le mot de passe demandé à votre connection." required>
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="mdi-action-lock"></i></span>
-                    <input type="password" name="pwd_conf" class="form-control floating-label" placeholder="Verification mot de passe" required>
+                    <input type="password" name="pwd_conf" class="form-control floating-label" placeholder="Verification mot de passe" data-hint="Répétez votre mot de passe" required>
                 </div>
             </div>
             <br />
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="mdi-communication-email"></i></span>
-            <input type="email" name="email" class="form-control floating-label" placeholder="Adresse e-mail" required>
+            <input type="email" name="email" class="form-control floating-label" placeholder="Adresse e-mail" data-hint="Votre email (non vérifiée)" required>
                 </div>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit" name="inscription">S'inscrire</button>

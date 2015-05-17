@@ -41,7 +41,7 @@
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="mdi-action-account-circle"></i></span>
-                    <input type="text" name="username" class="form-control floating-label input-lg" placeholder="Nom d'utilisateur" required autofocus>
+                    <input type="text" name="username" class="form-control floating-label" placeholder="Nom d'utilisateur" required autofocus>
                 </div>
             </div>
             <div class="form-group">

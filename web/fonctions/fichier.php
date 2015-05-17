@@ -30,8 +30,8 @@
             return;
         }
         
-        if( isset($_GET["content"]) ) { // Modification
-            $modifie = modif($_GET["f"], $_GET["content"]);
+        if( isset($_POST["content"]) ) { // Modification
+            $modifie = modif($_GET["f"], $_POST["content"]);
             if( isErreur($modifie) )
                 $r["erreurs"][] = $modifie;
             else

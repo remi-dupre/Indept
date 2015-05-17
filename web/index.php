@@ -52,13 +52,13 @@
         </div>
     </div>
     
-    <div class="btn btn-fab btn-raised btn-material-red expendable" id="quickadd">
+    <!-- <div class="btn btn-fab btn-raised btn-material-red expendable" id="quickadd">
       <i class="mdi-content-add expendable-btn"></i>
       <div class="container expendable-content">
         <p>DAN</p>
         <div class="btn expendable-close">Réduire</div>
       </div>
-    </div>
+    </div> -->
     
     <div class="container">
         <div class="row" id="liste-fichiers">

@@ -88,12 +88,13 @@ function ouvrir(fichier) {
     $("#recherche").val("");
 }
 
-/// Envoyer le fichier courrant
+/// Envoyer le fichier courant
 function envoyer() {
     $("#envoyer").removeClass("btn-danger btn-success").attr("disabled", true);
     $.ajax({
-        type: "GET",
-        url: "fonctions/fichier.php?f=" + ancre() + "&content=" + encodeURIComponent(JSON.stringify(contenu)),
+        type: "POST",
+        url: "fonctions/fichier.php?f=" + ancre(),
+        data: "content=" + encodeURIComponent(JSON.stringify(contenu)),
         dataType: "text"
     }).success(function() {
         $("#envoyer").addClass("btn-success").attr("disabled", false);

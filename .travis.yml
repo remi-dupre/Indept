@@ -5,11 +5,12 @@ install:
   - npm update
 deploy:
   provider: releases
-  api-key: fa037ff8824fe4404af3a4da7b354f661d224b03
+  api_key:
+    secure: R9r6ff/HQ/Y8yEQ1GIh0HdqvC1l+/4WbgzVX9uMTIVAGEL+XPv4cDXrzdKcyCY7pD2NmxxNiDvRvAeqcAGkrmbVfzU9jNOCvXyQrAlz0WFzsDOkC2nlXhmvZnYb7yy9F66vHBVN7Dizgpxo70tYkP0gEvGvr93VudSvDFvogAgQ=
   file:
    - indept-build.zip
    - indept-build.tar.gz
   skip_cleanup: true
   on:
     tags: true
-    all_branches: true
+    repo: remi100756/Indept

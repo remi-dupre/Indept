@@ -12,7 +12,7 @@
     $tex = str_replace('%_DETAIL_%', detail($json), $tex);
     
     file_put_contents("facture$id.tex", $tex);
-    exec("pdflatex facture$id.tex");
+    exec("xelatex facture$id.tex");
     
     $file = "facture$id.pdf";
     $filename = 'indept-remi.pdf';
@@ -68,7 +68,7 @@
         }
         
         return "
-            Dépensé : $depense \\euro, Encaissé : $encaisse \\euro, Entrées : $nb_lignes ~~\\\\~~\\\\
+            Dépensé : $depense €, Encaissé : $encaisse €, Entrées : $nb_lignes ~~\\\\~~\\\\
             \\begin{tabularx}{\\textwidth}{| l | c | c | X |}
                 \\hline $lignes
             \\end{tabularx}
@@ -80,7 +80,7 @@
         $montant = $ligne['montant'];
         $date = date('d/m/Y', $ligne['date']);
         $description = tex_format( $ligne['description'] );
-        return " $nom & $montant \\euro & $date & $description \\\\ \\hline ";
+        return " $nom & $montant € & $date & $description \\\\ \\hline ";
     }
     
     function ordreLignes($ligneA, $ligneB) {

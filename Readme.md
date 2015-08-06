@@ -18,6 +18,7 @@ chown http:http dept/fichiers dept/comptes
 
 ## Dépendances
 Nécéssite php5 (les version antérieures n'ont pas été testées)
+Latex : ```sudo apt-get install texlive texlive-lang-french texlive-latex-xtra texlive-xetex cm-super```
 
 ## Outils tiers
 

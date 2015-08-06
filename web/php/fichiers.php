@@ -15,6 +15,14 @@ function ouvre($fichier) {
     return erreur("Impossible d'ouvrir le fichier.", "Vous n'avez pas les droits nécessaires pour lire ce fichier.");
 }
 
+function droits($fichier) {
+    $contenu = file_get_contents("../fichiers/$fichier.json");
+    $json = json_decode($contenu, true);
+    
+    $est_proprietaire = $json["proprietaire"] == $_SESSION["utilisateur"]["login"];
+    return $est_proprietaire || $json["partage"] == "public";
+}
+
 /// Crée un fichier et retourne le nom du fichier crée
 function creer($info) {
     if( !minEntrees($info, array("nom")) )
@@ -78,7 +86,7 @@ function listerFichiers() {
 			$fichier = $fichier[0];
             $proprio = explode("-", $fichier);
 			$contenu = json_decode(ouvre($fichier), true);
-            if( in_array($_SESSION["utilisateur"]["login"], $proprio) ) {
+            if( droits($fichier)) {
                 $liste[] = array(
                     "fichier" => $fichier,
                     "nom" => $contenu["nom"]

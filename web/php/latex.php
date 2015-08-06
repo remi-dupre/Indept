@@ -28,7 +28,7 @@
             if( !isset($liste_mois[$mois]) ) $liste_mois[$mois] = array();
             array_push($liste_mois[$mois], $ligne);
         }
-        uksort($liste_mois);
+        uksort($liste_mois, "ordreTemps");
         
         foreach( $liste_mois as $mois => $lignes ) {
             usort($lignes, "ordreLignes");
@@ -77,6 +77,10 @@
     
     function ordreLignes($ligneA, $ligneB) {
         return $ligneA['date'] - $ligneB['date'];
+    }
+    
+    function ordreTemps($tA, $tB) {
+        return $tB - $tA;
     }
     
     function date_MY($timestamp) {

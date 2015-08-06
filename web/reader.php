@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if( !isset($_SESSION["utilisateur"]) ) {
+  if( !isset($_SESSION["utilisateur"]) && !isset($_GET["visiteur"]) ) {
     header("Location: login.php");
     return;
   }

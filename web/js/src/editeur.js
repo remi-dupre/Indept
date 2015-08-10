@@ -139,15 +139,13 @@ function inserer() {
 /// Affiche la ligne-formulaire au début de la liste
 function ajouterLigne() {
     var ligne = $("#ligne_ajout");
-
-    ligne.find("input.liste-date").datepicker({
-        dateFormat: "dd/mm/yy",
-        beforeShow: function() {
-            setTimeout(function() {
-                $("#ui-datepicker-div").css("z-index", 99999999999);
-            }, 0);
-        }
+    ligne.find("input.liste-date").bootstrapMaterialDatePicker({
+        format: 'DD/MM/YYYY',
+        lang: 'fr',
+        time: false,
+        cancelText: 'ANNULER'
     });
+    ligne.find("input.liste-date").bootstrapMaterialDatePicker('setDate', moment());
 
     $("#ajouter_ligne").attr("disabled", true);
     ligne.show();

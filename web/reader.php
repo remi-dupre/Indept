@@ -14,9 +14,9 @@
 
     <title class="doc_info nom">Lecteur de fichier dette</title>
     <link rel="icon" href="css/images/icone.png">
-
-    <link rel="stylesheet" href="css/jquery-ui.min.css">
-    
+  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/datepicker.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/ripples.min.css">
     <link rel="stylesheet" href="css/material-wfont.min.css">
@@ -270,8 +270,6 @@
   </div>
 
 	<script src="js/jquery.min.js"></script> <!-- jquery 1.11.1 -->
-	<script src="js/jquery-ui.min.js"></script> <!-- http://jqueryui.com/download/ : Core + Datepicker , theme Dot Luv -->
-	
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ripples.min.js"></script>
 	<script src="js/material.min.js"></script>
@@ -280,6 +278,7 @@
 	<script src="js/editeur.min.js"></script>
 	
 	<script src="js/moment.min.js"></script> <!-- http://momentjs.com/ -->
+	<script src="js/datepicker.min.js"></script> <!-- https://github.com/T00rk/bootstrap-material-datetimepicker -->
 	<script>
 	  moment.locale("fr");
 	</script>

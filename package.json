@@ -16,7 +16,9 @@
   "homepage": "https://github.com/remi100756/Indept",
   "devDependencies": {
     "bcrypt": "^0.8.4",
+    "body-parser": "^1.13.3",
     "cookie-session": "^1.2.0",
+    "ejs": "^2.3.3",
     "express": "^4.13.3"
   }
 }

@@ -11,18 +11,18 @@
     <link rel="stylesheet" href="libs/material/css/ripples.min.css">
     <link rel="stylesheet" href="libs/material/css/roboto.min.css">
     
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/login.less">
 </head>
 
 <body>
-    <div class="container form-signin well well-lg">
+    <div id="form-signin-container" class="container well well-lg">
         <!-- Formulaire d'inscription -->
         <form method="POST" action="">
             <% if( erreur ) { %>
                 <div class="alert alert-danger" role="alert">Le nom d'utilisateur / mot de passe entré est <strong>invalide</strong></div>
             <% } %>
             <input type="text" name="type" value="login" style="display:none">
-            <h2 class="form-signin-heading">Connection requise</h2>
+            <h2 class="form-heading">Connection requise</h2>
             <div class="form-group"> <!-- Nom d'utilisateur -->
                 <div class="input-group">
                     <span class="input-group-addon"><i class="mdi-action-account-circle"></i></span>

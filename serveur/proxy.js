@@ -23,11 +23,10 @@ function proxy(root) {
                 fs.readFile('../' + root + req.path, 'utf-8', function(err, lessdata) {
                         if (err) console.log(err);
                         else {
-                            console.log(lessdata);
                             less.render(lessdata, {
-                                    paths: ['../web/css'], // Specify search paths for @import directives
-                                    filename: 'style.less', // Specify a filename, for better error messages
-                                    compress: true // Minify CSS output
+                                    paths: ['../web/css'],
+                                    filename: req.path,
+                                    compress: true
                                 },
                                 function(err, output) {
                                     if(err) console.log(err);

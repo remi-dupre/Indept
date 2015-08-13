@@ -6,14 +6,16 @@ module.exports = function(grunt) {
             libs: {
                 files: {
                     'libs/bootstrap.zip': 'https://github.com/twbs/bootstrap/releases/download/v3.3.5/bootstrap-3.3.5-dist.zip',
-                    'libs/material-bootstrap.zip': 'https://github.com/FezVrasta/bootstrap-material-design/archive/master.zip',
-                    'libs/jquery.js': 'http://code.jquery.com/jquery-2.1.4.min.js',
-                    'libs/moment.js': 'http://momentjs.com/downloads/moment-with-locales.js'
+                    'libs/material-bootstrap.zip': 'http://cdn.jsdelivr.net/bootstrap.material-design/0.3.0/bootstrap.material-design.zip',
+                    'libs/nprogress.zip': 'https://github.com/rstacruz/nprogress/archive/master.zip',
+                    'libs/jquery.min.js': 'http://code.jquery.com/jquery-2.1.4.min.js',
+                    'libs/moment.min.js': 'http://momentjs.com/downloads/moment-with-locales.js'
                 }
             }
         },
         unzip: {
-            'libs': 'libs/*.zip'
+            'libs': 'libs/{bootstrap,nprogress}.zip',
+            'libs/material': 'libs/material-bootstrap.zip'
         },
         rename: {
             libs: {
@@ -21,8 +23,8 @@ module.exports = function(grunt) {
                     src: ['libs/bootstrap-3.3.5-dist'],
                     dest: 'libs/bootstrap'
                 }, {
-                    src: ['libs/bootstrap-material-design-master'],
-                    dest: 'libs/bootstrap-material'
+                    src: ['libs/nprogress-master'],
+                    dest: 'libs/nprogress'
                 }]
             }
         },
@@ -40,7 +42,7 @@ module.exports = function(grunt) {
 
     // Tâches
     //grunt.registerTask('clean', ['clean:clean']);
-    grunt.registerTask('libs', ['clean:clean', 'wget:libs', 'unzip:libs', 'rename:libs', 'clean:libs']);
+    grunt.registerTask('libs', ['clean:clean', 'wget:libs', 'unzip', 'rename:libs', 'clean:libs']);
     grunt.registerTask('default', ['libs']);
 
 };

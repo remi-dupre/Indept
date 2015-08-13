@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>InDept - Connection</title>
+    <link rel="icon" href="css/images/icone.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/material/css/material.min.css">
+    <link rel="stylesheet" href="libs/material/css/ripples.min.css">
+    <link rel="stylesheet" href="libs/material/css/roboto.min.css">
+    
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="container form-signin well well-lg">
+        <!-- Formulaire d'inscription -->
+        <form method="POST" action="">
+            <% if( erreur ) { %>
+                <div class="alert alert-danger" role="alert">Le nom d'utilisateur / mot de passe entré est <strong>invalide</strong></div>
+            <% } %>
+            <input type="text" name="type" value="login" style="display:none">
+            <h2 class="form-signin-heading">Connection requise</h2>
+            <div class="form-group"> <!-- Nom d'utilisateur -->
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="mdi-action-account-circle"></i></span>
+                    <input type="text" name="login" class="form-control floating-label" placeholder="Nom d'utilisateur" required autofocus>
+                </div>
+            </div>
+            <div class="form-group"> <!-- Mot de passe -->
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="mdi-action-lock"></i></span>
+                    <input type="password" name="passe" class="form-control floating-label input-lg" placeholder="Mot de passe" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Connection</button>
+            </div>
+        </form>
+        <div class="form-footer">
+            <a href="inscription.php" class="btn btn-info btn-flat">S'inscrire</a>
+        </div>
+    </div>
+
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/material/js/ripples.min.js"></script>
+    <script src="libs/material/js/material.min.js"></script>
+    <script>
+        $(function() {
+            $.material.init();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title class="doc_info nom">Indept</title>
+    <link rel="icon" href="css/images/icone.png">
+    
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/material/css/material.min.css">
+    <link rel="stylesheet" href="libs/material/css/ripples.min.css">
+    <link rel="stylesheet" href="libs/material/css/roboto.min.css">
+    <link rel="stylesheet" href="libs/nprogress/nprogress.css">
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="dropdown-toggle navbar-brand"><span class="glyphicon glyphicon-home"></span> Indept - Accueil</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Profil</a></li>
+            <li><a href="unlogin">Déconnection</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> <!-- Navbar -->
+    
+    <div class="jumbotron">
+        <div class="container">
+            <h2>Bienvenue dans Indept</h2>
+            <p>
+              Depuis cette page vous pouvez acceder à vos différents fichiers.
+            </p>
+        </div>
+    </div>
+    
+    <!-- <div class="btn btn-fab btn-raised btn-material-red expendable" id="quickadd">
+      <i class="mdi-content-add expendable-btn"></i>
+      <div class="container expendable-content">
+        <p>DAN</p>
+        <div class="btn expendable-close">Réduire</div>
+      </div>
+    </div> -->
+    
+    <div class="container">
+        <div class="row" id="liste-fichiers">
+            <div class="col-md-4 model container-carte">
+                <div class="panel panel-material-indigo-900 carte withripple"> <!-- carte -->
+                  <div class="panel-heading">
+                    <h2 class="file-info nom">Nom du fichier</h2>
+                  </div>
+                  <div class="panel-body">
+                    <p class="text-info">Dernière modification <span class="file-info derniere_modif">il y a ...</span></p>
+                    <ul class="list-group list-sm">
+                        <li class="list-group-item">
+                          <div class="row-action-primary">
+                            <i class="glyphicon glyphicon-fire"></i>
+                          </div>
+                          <div class="row-content">
+                              <div class="least-content euro file-info total toujours">...</div>
+                              <p class="list-group-item-text">Dépenses totales</p>
+                          </div>
+                        </li>
+                        <li class="list-group-item">
+                          <div class="row-action-primary">
+                            <i class="glyphicon glyphicon-stats"></i>
+                          </div>
+                          <div class="row-content">
+                              <div class="least-content euro file-info total mois">...</div>
+                              <p class="list-group-item-text">Moyenne par mois</p>
+                          </div>
+                        </li>
+                        <li class="list-group-item">
+                          <div class="row-action-primary">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                          </div>
+                          <div class="row-content">
+                              <div class="least-content file-info lignes">...</div>
+                              <p class="list-group-item-text">Nombre de lignes</p>
+                          </div>
+                        </li>
+                        <li class="list-group-item">
+                          <div class="row-action-primary">
+                            <i class="glyphicon glyphicon-sunglasses"></i>
+                          </div>
+                          <div class="row-content">
+                              <div class="least-content valeur file-info mot">...</div>
+                              <p class="list-group-item-text">Mot fréquent</p>
+                          </div>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <!-- Affichage des alertes -->    
+    <div id="liste-alertes">
+      <div class="alert alert-danger" role="alert" style="display: none;">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong class="titre-alerte">Alerte !</strong> <br />
+        <span class="contenu-alerte">Message d'erreur</span>
+      </div>
+    </div>
+
+	<script src="libs/jquery.min.js"></script>
+	<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+	<script src="libs/material/js/ripples.min.js"></script>
+	<script src="libs/material/js/material.min.js"></script>
+	<script src="libs/nprogress/nprogress.js"></script>
+	<script src="libs/moment.min.js"></script> <!-- http://momentjs.com/ -->
+	
+	<script src="js/general.js"></script>
+	<script src="js/statistiques.js"></script>
+	<script src="js/home.js"></script>
+	
+	<script>
+	  moment.locale("fr");
+	</script>
+	<script>
+	  $(function(){
+	    $.material.options = {
+        "withRipples": ".btn:not(.btn-link):not(.expendable), .card-image, .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple",
+        "inputElements": "input.form-control, textarea.form-control, select.form-control",
+        "checkboxElements": ".checkbox > label > input[type=checkbox]",
+        "radioElements": ".radio > label > input[type=radio]"
+      }
+	    $.material.init();
+	  });
+	</script>
+  </body>
+</html>

@@ -57,7 +57,7 @@
               </ul>
             </li>
             <li><a href="#">Profil</a></li>
-            <li><a href="unlogin.php">Déconnection</a></li>
+            <li><a href="unlogin">Déconnection</a></li>
           </ul>
           <span class="navbar-form navbar-right">
             <input id="recherche" type="text" class="form-control floating-label" placeholder="Filtrer ...">

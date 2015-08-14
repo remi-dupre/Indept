@@ -10,7 +10,7 @@ var fichiers = {}; // Liste des fichiers de l'utilisateur
 var comptes = {}; // Liste des utilisateurs
 
 $(document).ready(function() {
-    ouvrir("fonctions/fichier.php?f=" + ancre());
+    ouvrir("fichier/" + ancre() + "/get");
 
     $("#ajouter_ligne").attr("disabled", false);
 

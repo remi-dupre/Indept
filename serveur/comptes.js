@@ -14,7 +14,7 @@ function randPass(taille) {
 }
 
 function estConnecte(session) {
-    /* Vérifie que l'utilisateur est connecté
+    /* Vérifie qu'un utilisateur est connecté
      *  - Sortie : S'il n'est pas connecté, retourne false, sinon true
      *  - Entrée : la session
      */
@@ -56,6 +56,9 @@ function connection(infos, session, callback) {
 }
 
 function creerCompte(login, pseudo, passe, email, callback) {
+    /* Crée un compte avec les informations demandées
+     * Appel callback() une fois terminé avec succès
+     */
     callback = callback || function(){};
     bcrypt.hash(passe, 10, function(err, hash) {
         if(err) console.log(err);
@@ -69,7 +72,7 @@ function creerCompte(login, pseudo, passe, email, callback) {
             
             fs.mkdir('../comptes', function(err) {
                 if(err && err !== 'EEXIST')
-                    console.log('EEXIST');
+                    console.log(err);
                 else {
                     fs.writeFile('../comptes/' + login + '.json', json, function(err) {
                         if (err)

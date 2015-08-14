@@ -1,11 +1,4 @@
-<?php
-  session_start();
-  if( !isset($_SESSION["utilisateur"]) && !isset($_GET["visiteur"]) ) {
-    header("Location: login.php");
-    return;
-  }
-?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8">
@@ -15,14 +8,14 @@
     <title class="doc_info nom">Lecteur de fichier dette</title>
     <link rel="icon" href="css/images/icone.png">
   
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
     <link rel="stylesheet" href="css/datepicker.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/ripples.min.css">
-    <link rel="stylesheet" href="css/material-wfont.min.css">
-    <link rel="stylesheet" href="css/nprogress.min.css">
-    <link rel="stylesheet" href="css/nprogress.min.css">
-    <link rel="stylesheet" href="css/editeur.min.css">
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/material/css/material.min.css">
+    <link rel="stylesheet" href="libs/material/css/ripples.min.css">
+    <link rel="stylesheet" href="libs/material/css/roboto.min.css">
+    <link rel="stylesheet" href="libs/nprogress/nprogress.css">
+    <link rel="stylesheet" href="css/editeur.less">
   </head>
 
   <body>
@@ -269,15 +262,18 @@
     </div>
   </div>
 
-	<script src="js/jquery.min.js"></script> <!-- jquery 1.11.1 -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/ripples.min.js"></script>
-	<script src="js/material.min.js"></script>
+	<script src="libs/jquery.min.js"></script> <!-- jquery 1.11.1 -->
+	<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+	<script src="libs/material/js/material.min.js"></script>
+	<script src="libs/material/js/ripples.min.js"></script>
+	<script src="libs/nprogress/nprogress.js"></script>
 	
-	<script src="js/nprogress.min.js"></script>
-	<script src="js/editeur.min.js"></script>
+	<script src="js/general.js"></script>
+	<script src="js/statistiques.js"></script>
+	<script src="js/tables.js"></script>
+	<script src="js/editeur.js"></script>
 	
-	<script src="js/moment.min.js"></script> <!-- http://momentjs.com/ -->
+	<script src="libs/moment.min.js"></script> <!-- http://momentjs.com/ -->
 	<script src="js/datepicker.min.js"></script> <!-- https://github.com/T00rk/bootstrap-material-datetimepicker -->
 	<script>
 	  moment.locale("fr");

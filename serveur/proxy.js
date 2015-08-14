@@ -21,19 +21,19 @@ function proxy(root) {
         switch (extension) {
             case 'less':
                 fs.readFile('../' + root + req.path, 'utf-8', function(err, lessdata) {
-                        if (err) console.log(err);
-                        else {
-                            less.render(lessdata, {
-                                    paths: ['../web/css'],
-                                    filename: req.path,
-                                    compress: true
-                                },
-                                function(err, output) {
-                                    if(err) console.log(err);
-                                    res.end(output.css);
-                                });
-                        }
-                    });
+                    if (err) console.log(err);
+                    else {
+                        less.render(lessdata, {
+                                paths: ['../web/css'],
+                                filename: req.path,
+                                compress: true
+                            },
+                            function(err, output) {
+                                if(err) console.log(err);
+                                res.end(output.css);
+                            });
+                    }
+                });
                 break;
                 
             default:

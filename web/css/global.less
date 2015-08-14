@@ -1,0 +1,93 @@
+body {
+    padding-top: 50px;
+}
+
+a {
+    cursor: pointer;
+}
+
+// Pour coordiner nprogress avec la barre de navigation
+#nprogress > .spinner {
+    top: auto;
+    bottom: 15px;
+    left: 15px;
+    right: auto;
+}
+
+.euro:after {
+    content: " €";
+}
+
+.dropdown-menu .glyphicon {
+    font-size: 0.9em;
+}
+
+.model {
+    display: none;
+}
+
+.navbar {
+    .navbar-brand > .glyphicon {
+        margin-right: 5px;
+    }
+    
+    .navbar-form {
+        display: block;
+    }
+}
+
+/* ********** Listes ********** */
+
+.list-group.borderless > .list-group-item {
+    border-right : none;
+    border-left : none;
+}
+
+.list-group.list-sm {
+    .row-action-primary > i {
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+        font-size: 10px;
+    }
+    
+    .row-content {
+        min-height: 35px;
+    }
+}
+
+
+/* ********** Affichage des erreurs ********** */
+
+#liste-alertes {
+    position: fixed;
+    right: 10px;
+    top: 60px;
+    width: 300px;
+    z-index: 100;
+}
+
+#liste-alertes .alert {
+    margin-bottom: 5px;
+}
+
+/* Ca a l'air de n'avoir rien à foutre ici */
+
+.input_ligne {
+    width: 100%;
+    border: none;
+}
+
+/* ********** Tableau de statistiques ********** */
+
+.table-stats > thead > tr:last-child {
+    color : gray;
+}
+
+td.stats {
+    font-weight: bold;
+}
+
+td.stats:after {
+    content : " €";
+}

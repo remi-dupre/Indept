@@ -13,6 +13,8 @@ app.use(express.static(__dirname + '/public'));
 app.use( session({ secret: comptes.sessionSecret }) );
 app.use( bodyParser.urlencoded({ extended: false }) );
 
+fichiers.charger();
+
 /* *************** Traitement des requêtes *************** */
 
 app.get('/css/*', proxy('web'));
@@ -20,6 +22,7 @@ app.get('/js/*', proxy('web'));
 app.get('/fonts/*', proxy('web'));
 app.get('/libs/*', proxy('/'));
 
+// Se déconnecter
 app.get('/unlogin', function(req, res) {
     req.session = null;
     res.writeHead(302, {
@@ -28,11 +31,13 @@ app.get('/unlogin', function(req, res) {
     res.end('Déconnecté');
 });
 
+// Ouvrir l'éditeur
 app.get('/editeur', function(req, res) {
     res.setHeader('Content-Type', 'text/html');
     res.render('editeur.html', {});
 });
 
+// Retourne un fichier en json brut
 app.get('/fichier/:fichier/json', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     fichiers.ouvrir(req.params.fichier, req.session, function(data) {
@@ -40,24 +45,17 @@ app.get('/fichier/:fichier/json', function(req, res) {
     });
 });
 
-app.get('/fichier/:fichier/get', function(req, res) {
+// Donne des infos sur l'appli
+app.get('/info', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     var retour = {
-        contenu: null,
         fichiers: null,
-        comptes: {},
-        erreurs: {}
+        comptes: {}
     };
     var fini = function() {
-        return (retour.contenu !== null)
-            && (retour.fichiers !== null);
+        return (retour.fichiers !== null);
     };
     
-    fichiers.ouvrir(req.params.fichier, req.session, function(data) {
-        retour.contenu = data;
-        if( fini() )
-            res.end( JSON.stringify(retour) );
-    });
     fichiers.lister(req.session, function(data) {
         retour.fichiers = data;
         if( fini() )
@@ -65,6 +63,7 @@ app.get('/fichier/:fichier/get', function(req, res) {
     });
 });
 
+// Liste les fichiers accessibles
 app.get('/action/lister', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     fichiers.lister(req.session, function(data) {

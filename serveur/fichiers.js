@@ -88,5 +88,64 @@ function lister(session, callback) {
     });
 }
 
+/* *** Fonctions d'administration *** */
+
+function update(fichier, callback) {
+    /* Verifie la version du format de fichier
+     * Si le fichier est obsolete, effectue la mise a jours
+     * Sortie : appel callback :
+     *  - true si le fichier est modifie
+     */
+    fs.readFile(path_fichiers + fichier, 'utf-8', function(err, data) {
+        if(err) console.log(err);
+        else {
+            data = JSON.parse(data);
+            if ( typeof data.version === "undefined" ) {
+                // Version 0
+                data.minid = 0;
+                for(var l in data.liste) {
+                    data.liste[l].id = data.minid;
+                    data.minid++;
+                }
+                data.version = 1;
+            }
+            else { // Aucune modification
+                callback(false);
+                return;
+            }
+            fs.writeFile(path_fichiers + fichier, JSON.stringify(data), function (err) {
+                if (err) console.log(err);
+                callback(true);
+            });
+        }
+    });
+}
+
+function chargerFichers() {
+    /* Effectue un listing des fichiers
+     * Les update si necessaire
+     */
+    fs.readdir(path_fichiers, function(err, files) {
+        if(err) console.log(err);
+        else {
+            console.log(files.length + " fichiers");
+            for(var f in files) {
+                fichier = files[f];
+                fs.readFile(path_fichiers + fichier, 'utf-8', function(err, data) {
+                    if(err) console.log(err);
+                    else {
+                        data = JSON.parse(data);
+                        console.log(fichier + " - " + data.nom + " : " + data.proprietaire);
+                        update(fichier, function(change) {
+                            if( change ) console.log(fichier + " a été mis à jours");
+                        });
+                    }
+                });
+            }
+        }
+    });
+}
+
+exports.charger = chargerFichers;
 exports.ouvrir = ouvrir;
 exports.lister = lister;

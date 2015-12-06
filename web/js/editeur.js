@@ -91,8 +91,8 @@ function envoyer() {
     $("#envoyer").removeClass("btn-danger btn-success").attr("disabled", true);
     $.ajax({
         type: "POST",
-        url: "fichier.php?f=" + ancre(),
-        data: "content=" + encodeURIComponent(JSON.stringify(contenu)),
+        url: "fichier/" + ancre() + "/modifier",
+        data: "data=" + encodeURIComponent(JSON.stringify(contenu)),
         dataType: "text"
     }).success(function() {
         $("#envoyer").addClass("btn-success").attr("disabled", false);
@@ -100,7 +100,7 @@ function envoyer() {
         $("#envoyer").addClass("btn-danger").attr("disabled", false);
         erreur({
             titre: "Echec de l'enregistrement !",
-            contenu: "Impossible de comuniquer les modifications au serveur"
+            contenu: "Impossible de communiquer les modifications au serveur"
         });
     });
 }
@@ -117,10 +117,12 @@ function inserer() {
         date: timestamp / 1000,
         montant: parseFloat($("#ligne_ajout .liste-montant").val()),
         description: $("#ligne_ajout .liste-description").val(),
-        createur: comptes.actuel
+        createur: comptes.actuel,
+        id: contenu.minid
     };
 
     contenu.liste.unshift(ligne);
+    contenu.minid++;
 
     actualiser();
     envoyer();

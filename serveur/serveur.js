@@ -38,6 +38,12 @@ app.get('/editeur', function(req, res) {
     res.render('editeur.html', {});
 });
 
+// Modifier le fichier
+app.post('/fichier/:fichier/modifier', function(req, res) {
+    fichiers.modifier(req.params.fichier, JSON.parse(req.body.data), req.session, function(){});
+    res.end();
+});
+
 // Retourne un fichier en json brut
 app.get('/fichier/:fichier/json', function(req, res) {
     res.setHeader('Content-Type', 'application/json');

@@ -40,6 +40,23 @@ function ouvrir(fichier, session, callback) {
     });
 }
 
+function modifier(fichier, data, session, callback) {
+    /* Ouvre le fichier
+     * Entrées :
+     *  - fichier : le fichier à écrire (pas de chemin relatif)
+     *  - session : la session courante
+     * Appel callback() (déjà parsé)
+     */
+    droit(fichier, session, function(droit) {
+        if(droit < 2) {
+            console.log('Pas de droits d\'écriture sur le fichier ' + fichier);
+        }
+        else {
+            setData(fichier, data, callback);
+        }
+    });
+}
+
 function lister(session, callback) {
     /* Retourne la liste des fichiers accessibles par l'utilisateur courrant
      * Appel callback(fichiers) où fichiers est un array :
@@ -78,13 +95,23 @@ function lister(session, callback) {
 /* *** Acces bas niveau *** */
 
 function getData(fichier, callback) {
-    /* Lis de fichier et le parse */
+    /* Lis de fichier et le parse
+     */
     fs.readFile(path_fichiers + fichier, 'utf-8', function(err, data) {
         if(err) console.log(err);
         else {
             data = JSON.parse(data);
             callback(data);
         }
+    });
+}
+
+function setData(fichier, data, callback) {
+    /* Encode les données et les enregistre
+     */
+    fs.writeFile(path_fichiers + fichier, JSON.stringify(data), function (err) {
+        if (err) console.log(err);
+        callback();
     });
 }
 
@@ -110,8 +137,8 @@ function update(fichier, callback) {
             callback(false);
             return;
         }
-        fs.writeFile(path_fichiers + fichier, JSON.stringify(data), function (err) {
-            if (err) console.log(err);
+        
+        setData(fichier, data, function() {
             callback(true);
         });
     });
@@ -138,6 +165,7 @@ function chargerFichers() {
     });
 }
 
-exports.charger = chargerFichers;
 exports.ouvrir = ouvrir;
+exports.modifier = modifier;
 exports.lister = lister;
+exports.charger = chargerFichers;

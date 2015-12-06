@@ -4,6 +4,7 @@ var session = require('cookie-session');
 
 var comptes = require('./comptes.js');
 var fichiers = require('./fichiers.js');
+var conversion = require('./conversion.js');
 var proxy = require('./proxy.js').proxy;
 
 var app = express();
@@ -42,6 +43,14 @@ app.get('/fichier/:fichier/json', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     fichiers.ouvrir(req.params.fichier, req.session, function(data) {
         res.end( JSON.stringify(data) );
+    });
+});
+
+// Retourne un fichier en CSV
+app.get('/fichier/:fichier/csv', function(req, res) {
+    res.setHeader('Content-Type', 'text/csv');
+    fichiers.ouvrir(req.params.fichier, req.session, function(data) {
+        res.end( conversion.toCSV(data) );
     });
 });
 

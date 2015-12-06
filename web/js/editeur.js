@@ -161,8 +161,8 @@ function actualiser() {
 function lire(json) {
     $(".doc_info.nom").text(json.nom);
     $(".doc_info.proprietaire_pseudo").text(comptes[json.proprietaire]);
-    $(".dl.json").attr("href", "fonctions/fichier.php?raw=json&f=" + ancre());
-    $(".dl.csv").attr("href", "fonctions/fichier.php?raw=csv&f=" + ancre()); 
+    $(".dl.json").attr("href", "fichier/" + ancre() + "/json");
+    $(".dl.csv").attr("href", "fichier/" + ancre() + "/csv"); 
 
     for (var j = 0 ; j < json.liste.length ; j++) {
         lireLigne(json.liste[j]);

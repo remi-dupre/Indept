@@ -13,19 +13,12 @@ function droit(fichier, session, callback) {
      *  - droit == 1 : peut lire le fichier
      *  - droit == 2 : peut lire et écrire le fichier
      */
-    fs.readFile(path_fichiers + fichier, 'utf-8', function(err, data) {
-        if(err) {
-            console.log(err);
-            callback(0);
+    getData(fichier, function(data) {
+        if( !comptes.estConnecte(session) || session.login !== data.proprietaire ) {
+            if( data.partage === 'public' ) callback(1);
+            else callback(0);
         }
-        else {
-            data = JSON.parse(data);
-            if( !comptes.estConnecte(session) || session.login !== data.proprietaire ) {
-                if( data.partage === 'public' ) callback(1);
-                else callback(0);
-            }
-            else callback(2);
-        }
+        else callback(2);
     });
 }
 
@@ -42,13 +35,7 @@ function ouvrir(fichier, session, callback) {
             callback({});
         }
         else {
-            fs.readFile(path_fichiers + fichier, 'utf-8', function(err, data) {
-                if(err) console.log(err);
-                else {
-                    data = JSON.parse(data);
-                    callback(data);
-                }
-            });
+            getData(fichier, callback);
         }
     });
 }
@@ -88,6 +75,19 @@ function lister(session, callback) {
     });
 }
 
+/* *** Acces bas niveau *** */
+
+function getData(fichier, callback) {
+    /* Lis de fichier et le parse */
+    fs.readFile(path_fichiers + fichier, 'utf-8', function(err, data) {
+        if(err) console.log(err);
+        else {
+            data = JSON.parse(data);
+            callback(data);
+        }
+    });
+}
+
 /* *** Fonctions d'administration *** */
 
 function update(fichier, callback) {
@@ -96,28 +96,24 @@ function update(fichier, callback) {
      * Sortie : appel callback :
      *  - true si le fichier est modifie
      */
-    fs.readFile(path_fichiers + fichier, 'utf-8', function(err, data) {
-        if(err) console.log(err);
-        else {
-            data = JSON.parse(data);
-            if ( typeof data.version === "undefined" ) {
-                // Version 0
-                data.minid = 0;
-                for(var l in data.liste) {
-                    data.liste[l].id = data.minid;
-                    data.minid++;
-                }
-                data.version = 1;
+    getData(fichier, function(data) {
+        if ( typeof data.version === "undefined" ) {
+            // Version 0
+            data.minid = 0;
+            for(var l in data.liste) {
+                data.liste[l].id = data.minid;
+                data.minid++;
             }
-            else { // Aucune modification
-                callback(false);
-                return;
-            }
-            fs.writeFile(path_fichiers + fichier, JSON.stringify(data), function (err) {
-                if (err) console.log(err);
-                callback(true);
-            });
+            data.version = 1;
         }
+        else { // Aucune modification
+            callback(false);
+            return;
+        }
+        fs.writeFile(path_fichiers + fichier, JSON.stringify(data), function (err) {
+            if (err) console.log(err);
+            callback(true);
+        });
     });
 }
 
@@ -131,15 +127,11 @@ function chargerFichers() {
             console.log(files.length + " fichiers");
             for(var f in files) {
                 fichier = files[f];
-                fs.readFile(path_fichiers + fichier, 'utf-8', function(err, data) {
-                    if(err) console.log(err);
-                    else {
-                        data = JSON.parse(data);
-                        console.log(fichier + " - " + data.nom + " : " + data.proprietaire);
-                        update(fichier, function(change) {
-                            if( change ) console.log(fichier + " a été mis à jours");
-                        });
-                    }
+                getData(fichier, function(data) {
+                    console.log(fichier + " - " + data.nom + " : " + data.proprietaire);
+                    update(fichier, function(change) {
+                        if( change ) console.log(fichier + " a été mis à jours");
+                    });
                 });
             }
         }

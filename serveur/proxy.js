@@ -24,7 +24,7 @@ function proxy(root) {
                     if (err) console.log(err);
                     else {
                         less.render(lessdata, {
-                                paths: ['../web/css'],
+                                paths: ['../web/css', '../libs'],
                                 filename: req.path,
                                 compress: true
                             },

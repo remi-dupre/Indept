@@ -45,7 +45,7 @@ function lire(json) {
             fichier = fichiers[i].fichier;
         }
     }
-    element.attr("href", "reader.php#"+fichier);
+    element.attr("href", "editeur#"+fichier);
     element.click(function(e){
         window.open($($(e.target).parents(".container-carte")).attr("href"), "_self");
     });

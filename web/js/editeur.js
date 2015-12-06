@@ -10,7 +10,22 @@ var fichiers = {}; // Liste des fichiers de l'utilisateur
 var comptes = {}; // Liste des utilisateurs
 
 $(document).ready(function() {
-    ouvrir("fichier/" + ancre() + "/get");
+    // Récupère les infos globales
+    $.getJSON('info', function(json) {
+        fichiers = json.fichiers;
+        comptes = json.comptes;
+
+        for (var i in fichiers) {
+            var element = $("<li><a></a></li>").addClass("rm_on_file_change");
+            element.find("a").text(fichiers[i].nom).attr("href", "#" + fichiers[i].fichier);
+            element.prependTo("#liste_fichiers");
+        }
+        
+        $("#liste_fichiers>li>a:not(:last)").click(function(e) {
+            ouvrir("fichier/" + $(e.currentTarget).attr("href").split("#")[1] + "/get");
+        });
+    });
+    ouvrir("fichier/" + ancre() + "/json");
 
     $("#ajouter_ligne").attr("disabled", false);
 
@@ -63,25 +78,8 @@ function creer() {
 function ouvrir(fichier) {
     NProgress.start();
     $.getJSON(fichier, function(json) {
-        NProgress.set(0.5);
-        
-        contenu = json.contenu;
-        fichiers = json.fichiers;
-        comptes = json.comptes;
-        for(var j in json.erreurs)
-            erreur(json.erreurs[j]);
-
+        contenu = json;
         $(".rm_on_file_change").remove();
-
-        for (var i in fichiers) {
-            var element = $("<li><a></a></li>").addClass("rm_on_file_change");
-            element.find("a").text(fichiers[i].nom).attr("href", "#" + fichiers[i].fichier);
-            element.prependTo("#liste_fichiers");
-        }
-        $("#liste_fichiers>li>a:not(:last)").click(function(e) {
-            ouvrir("fonctions/fichier.php?f=" + $(e.currentTarget).attr("href").split("#")[1]);
-        });
-
         lire(contenu);
         NProgress.done();
     });
@@ -93,7 +91,7 @@ function envoyer() {
     $("#envoyer").removeClass("btn-danger btn-success").attr("disabled", true);
     $.ajax({
         type: "POST",
-        url: "fonctions/fichier.php?f=" + ancre(),
+        url: "fichier.php?f=" + ancre(),
         data: "content=" + encodeURIComponent(JSON.stringify(contenu)),
         dataType: "text"
     }).success(function() {
